@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>021 Marketing — Fractional Marketing for B2B Startups</title>
+    <meta name="description" content="021 helps B2B SaaS founders at early-stage startups derisk marketing and build the foundations that compound into a defensible moat. Fractional marketing director — strategy that ships.">
+    <meta property="og:title" content="021 Marketing — Fractional Marketing for B2B Startups">
+    <meta property="og:description" content="Turn early traction into your first marketing system. 021 helps B2B SaaS founders derisk marketing and build foundations that compound.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="emma-headshot.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="021 Marketing — Fractional Marketing for B2B Startups">
+    <meta name="twitter:description" content="Turn early traction into your first marketing system. Fractional marketing director for B2B SaaS startups.">
+    <link rel="icon" type="image/png" href="logos/021-favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --dark: #0F172A;
+            --dark-surface: #1E293B;
+            --bg: #F8F9FC;
+            --bg-warm: #F3F4F6;
+            --white: #FFFFFF;
+            --text: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --accent: #3B5EFF;
+            --accent-hover: #2A4AE0;
+            --accent-light: rgba(59,94,255,0.08);
+            --border: #E2E8F0;
+            --border-warm: #D8DCE8;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1080px;
+            --radius: 10px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 2px 8px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+            --shadow-lg: 0 4px 12px rgba(0,0,0,0.04), 0 16px 40px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ─── Nav ─── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248,249,252,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226,232,240,0.6);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 18px 32px;
+        }
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links .btn-nav {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .nav-links .btn-nav:hover { background: var(--accent-hover); color: var(--white); }
+
+        /* ─── Utility ─── */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+
+        /* ─── Section label ─── */
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            padding: 100px 32px 88px;
+            text-align: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 56px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(59,94,255,0.2);
+        }
+        .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 4px 16px rgba(59,94,255,0.3); transform: translateY(-1px); }
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--text);
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 1.5px solid var(--border);
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--text); }
+
+        /* ─── Section backgrounds ─── */
+        .section-white { background: var(--white); }
+        .section-warm { background: var(--bg-warm); }
+        .section-dark { background: var(--dark); color: rgba(255,255,255,0.92); }
+
+        /* ─── Section headings (consistent centered pattern) ─── */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-heading h2 {
+            font-size: clamp(28px, 3.5vw, 38px);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .section-heading p {
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 17px;
+        }
+
+        /* ─── Pain ─── */
+        .pain { padding: 80px 0; }
+        .pain-content {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .pain-content h2 {
+            font-size: clamp(28px, 3.5vw, 38px);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+            margin-bottom: 28px;
+        }
+        .pain-content p {
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            font-size: 17px;
+            text-align: center;
+        }
+        .pain-content p:last-child {
+            color: var(--text);
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        /* ─── About ─── */
+        .about { padding: 80px 0; }
+        .about-inner {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            align-items: start;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .about-photo {
+            width: 200px;
+            align-self: stretch;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .about-photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-surface) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .about-content h2 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            max-width: 520px;
+            font-size: 16px;
+        }
+
+        /* ─── Logos ─── */
+        .logos { padding: 48px 0; }
+        .logos-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .logo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .logo-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .logo-img {
+            height: 28px;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+        .logo-link:hover .logo-img { opacity: 0.75; filter: grayscale(0%); }
+        .logo-text {
+            color: var(--text);
+            font-size: 17px;
+            font-weight: 700;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+            letter-spacing: -0.2px;
+        }
+        .logo-text:hover { opacity: 0.6; }
+
+        /* ─── How I Work ─── */
+        .how-i-work { padding: 80px 0; }
+        .how-i-work .sprint-meta {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .how-i-work .section-heading .sprint-meta { margin-top: 8px; display: block; }
+        .work-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .work-item {
+            display: grid;
+            grid-template-columns: 32px 1fr;
+            gap: 20px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .work-item:first-child { padding-top: 0; }
+        .work-item:last-child { border-bottom: none; }
+        .work-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .work-item h3 {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.1px;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .work-item p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        /* ─── Principles ─── */
+        .principles { padding: 80px 0; }
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        .principle {
+            text-align: center;
+        }
+        .principle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .principle h3 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .principle p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.65;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* ─── Comparison ─── */
+        .comparison { padding: 80px 0; max-width: 1120px; margin: 0 auto; }
+        .comparison .section-heading h2 { margin-bottom: 4px; }
+        .comparison .price-label {
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 36px;
+            text-align: center;
+        }
+        .table-wrapper {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow-x: auto;
+            box-shadow: var(--shadow-md);
+        }
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 15px; white-space: nowrap; }
+        .comparison-table th {
+            text-align: left;
+            padding: 18px 20px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--border);
+            color: var(--text-secondary);
+        }
+        .comparison-table th:nth-child(2) {
+            color: var(--accent);
+            font-size: 13px;
+            background: var(--accent-light);
+            border-bottom-color: var(--accent);
+        }
+        .comparison-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            color: var(--text-secondary);
+        }
+        .comparison-table td:nth-child(2) {
+            color: var(--text);
+            font-weight: 600;
+            background: var(--accent-light);
+        }
+        .comparison-table td:first-child { font-weight: 700; color: var(--text); white-space: nowrap; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+
+        /* ─── Testimonials (dark) ─── */
+        .testimonials { padding: 80px 0; }
+        .testimonials .section-heading h2 { color: var(--white); }
+        .testimonials .section-heading p { color: var(--text-muted); }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .testimonial-card {
+            background: var(--dark-surface);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: border-color 0.3s;
+        }
+        .testimonial-card:hover { border-color: rgba(255,255,255,0.12); }
+        .testimonial-card .quote-mark {
+            font-size: 48px;
+            line-height: 1;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 800;
+        }
+        .testimonial-card blockquote {
+            font-size: 16px;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 20px;
+        }
+        .testimonial-card .attribution {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .testimonial-card .attribution span {
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        /* ─── FAQ ─── */
+        .faq { padding: 80px 0; }
+        .faq-category {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+        .faq-item { margin-bottom: 0; }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            user-select: none;
+        }
+        .faq-question h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text);
+            flex: 1;
+            padding-right: 16px;
+        }
+        .faq-toggle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer-inner { padding: 16px 0 24px; }
+        .faq-answer-inner p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            max-width: 680px;
+            margin-bottom: 12px;
+        }
+        .faq-answer-inner p:last-child { margin-bottom: 0; }
+        .faq-item.open .faq-answer { max-height: 600px; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--accent-light); color: var(--accent); }
+
+        /* ─── CTA (dark) ─── */
+        .cta-section {
+            padding: 100px 32px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+        .cta-section p {
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 36px;
+            font-size: 17px;
+        }
+        .btn-primary-dark {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 12px rgba(59,94,255,0.3);
+        }
+        .btn-primary-dark:hover { background: var(--accent-hover); box-shadow: 0 4px 20px rgba(59,94,255,0.4); transform: translateY(-1px); }
+
+        /* ─── Footer (continuous dark) ─── */
+        footer {
+            text-align: center;
+            padding: 32px;
+            font-size: 14px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* ─── Nav toggle (hidden on desktop) ─── */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .nav-inner { padding: 16px 20px; }
+            .nav-toggle { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                padding: 16px 20px 20px;
+                gap: 12px;
+                box-shadow: var(--shadow-md);
+            }
+            .nav-links.nav-open { display: flex; }
+            .nav-links li { list-style: none; }
+            .nav-links .btn-nav { display: inline-block; text-align: center; }
+            .hero { padding: 72px 20px 60px; }
+            .hero h1 { letter-spacing: -1px; }
+            .container { padding: 0 20px; }
+            .pain { padding: 60px 0; }
+            .about { padding: 60px 0; }
+            .about-inner { grid-template-columns: 1fr; gap: 28px; max-width: 100%; }
+            .about-photo { width: 140px; height: 170px; align-self: auto; }
+            .how-i-work { padding: 60px 0; }
+            .work-item { gap: 16px; }
+            .principles { padding: 60px 0; }
+            .principles-grid { grid-template-columns: 1fr; gap: 40px; }
+            .comparison { padding: 60px 0; }
+            .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .comparison-table { font-size: 13px; min-width: 580px; }
+            .comparison-table th, .comparison-table td { padding: 12px; }
+            .testimonials { padding: 60px 0; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .faq { padding: 60px 0; }
+            .cta-section { padding: 72px 20px; }
+            .logo-row { gap: 32px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><img src="logos/021-glyph.png" alt="021 Marketing" style="height: 36px; width: 36px;"></a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#how-i-work">How I work</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="section-label">Fractional marketing for B2B startups</div>
+        <h1>Turn early traction into<br>your first marketing system</h1>
+        <p>021 helps B2B SaaS founders at early-stage startups derisk marketing and build the foundations that compound into a defensible moat.</p>
+        <div class="hero-buttons">
+            <a href="https://calendly.com/cimolini/chats" class="btn-primary">Work with 021</a>
+            <a href="#how-i-work" class="btn-secondary">How I work</a>
+        </div>
+    </section>
+
+    <!-- Pain -->
+    <div class="section-white">
+        <div class="container">
+            <section class="pain">
+                <div class="pain-content">
+                    <h2>You have traction. What you don't have is a&nbsp;system.</h2>
+                    <p>You've got real customers. Solid retention. You can close anyone who gets on a call with you.</p>
+                    <p>But marketing hasn't clicked. You've tried a few things — some LinkedIn posts, maybe a conference, maybe a landing page. Nothing compounded. Not because you did it wrong, but because there was no system underneath.</p>
+                    <p>The signal is there. You know why people buy. But that knowledge is locked in conversations and gut feel — it works one-to-one, and it breaks the moment you need a website, an ad, or a cold email to do the talking for you.</p>
+                    <p>You don't have a marketing problem. You have a translation problem.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- About Emma -->
+    <div class="section-warm">
+        <div class="container">
+            <section class="about">
+                <div class="about-inner">
+                    <div class="about-photo">
+                        <img src="emma-headshot.jpg" alt="Emma Cimolini">
+                    </div>
+                    <div class="about-content">
+                        <h2>Hi. I'm Emma</h2>
+                        <p>I started in enterprise marketing at Microsoft, where I learned how the machine works — big teams, big budgets, structured GTM. Then I left for B2B startups and never looked back.</p>
+                        <p>I've been the first marketing hire at multiple startups. No playbook, messy infrastructure, no team. I've scaled ARR from $500K to $5M+. That experience — building from zero where every dollar and every decision mattered — is what 021 is built on.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="logos">
+                <div class="logos-label">Companies I've worked with</div>
+                <div class="logo-row">
+                    <a href="https://www.microsoft.com/en-ca" target="_blank" rel="noopener" class="logo-link"><img src="logos/microsoft.svg" alt="Microsoft" class="logo-img"></a>
+                    <a href="https://www.routific.com/" target="_blank" rel="noopener" class="logo-link"><img src="logos/routific.svg" alt="Routific" class="logo-img"></a>
+                    <a href="https://www.golexter.com/" target="_blank" rel="noopener" class="logo-link"><img src="logos/lexter.svg" alt="Lexter" class="logo-img"></a>
+                    <a href="https://koridor.io/" target="_blank" rel="noopener" class="logo-link"><img src="logos/koridor.svg?v=2" alt="Koridor" class="logo-img" style="height: 20px;"></a>
+                    <a href="https://taxaroo.com/" target="_blank" rel="noopener" class="logo-link"><img src="logos/taxaroo.png" alt="Taxaroo" class="logo-img"></a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- How I Work (Principles) -->
+    <div class="section-white" id="how-i-work">
+        <div class="container">
+            <section class="principles">
+                <div class="section-heading">
+                    <h2>How I work</h2>
+                </div>
+                <div class="principles-grid">
+                    <div class="principle">
+                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+                        <h3>Strategy that ships</h3>
+                        <p>I build the strategy and the first iteration of every asset. You get a strategist who executes — not a consultant who advises from arm's length.</p>
+                    </div>
+                    <div class="principle">
+                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                        <h3>AI-first marketing infrastructure</h3>
+                        <p>Marketing systems built around AI tooling from day one — workflows, content engines, and processes that scale beyond my involvement. Your team inherits infrastructure, not a folder of docs.</p>
+                    </div>
+                    <div class="principle">
+                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <h3>Three clients, max</h3>
+                        <p>Three engagements at a time, max. That means I go deep on your business, your market, and your customers. You're not someone's Tuesday afternoon.</p>
+                    </div>
+                    <div class="principle">
+                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
+                        <h3>Generalist by design, specialists on call</h3>
+                        <p>I execute the strategy, content, and positioning work directly. When you need depth in a specific channel — paid, SEO, design, dev — I bring in vetted partners who are best-in-class at that thing.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- How Each Engagement Starts -->
+    <div class="section-white" style="border-top: 1px solid var(--border);">
+        <div class="container">
+            <section class="how-i-work">
+                <div class="section-heading">
+                    <h2>How each engagement starts</h2>
+                    <p>Start with positioning. Use what it reveals to invest in the marketing activities that actually compound.</p>
+                </div>
+
+                <div class="work-list">
+                    <div class="work-item">
+                        <div class="work-num">1</div>
+                        <div>
+                            <h3>The Positioning Sprint</h3>
+                            <p>Four weeks of working sessions and async work. I present 2–3 positioning theses — who each targets, how it differentiates, and what it unlocks downstream. You decide the direction. I translate it into a positioning deck and homepage copy your team can use immediately.</p>
+                        </div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-num">2</div>
+                        <div>
+                            <h3>Scope what comes next</h3>
+                            <p>The sprint reveals where the highest-leverage opportunities are. We use those learnings to scope ongoing work focused on what will actually move the needle at your stage.</p>
+                        </div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-num">3</div>
+                        <div>
+                            <h3>Execute on what the positioning reveals</h3>
+                            <p>Content assets mapped to your messaging, customer and competitive research, channel validation experiments, AI marketing infrastructure, and POV and founder brand sprints to build authority in your space.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Comparison -->
+    <div class="section-warm">
+        <div class="container" style="max-width: 1200px;">
+            <section class="comparison">
+                <div class="section-heading">
+                    <h2>Fractional B2B marketing director.<br>Not a CMO. Not an agency.</h2>
+                </div>
+                <p class="price-label">Starting at $3,500 USD / month</p>
+                <div class="table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>021 Marketing</th>
+                                <th>Fractional CMO</th>
+                                <th>Agency</th>
+                                <th>First Marketing Hire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>What they deliver</td>
+                                <td>Strategy &rarr; execution bridge</td>
+                                <td>Strategy deck</td>
+                                <td>Channel execution</td>
+                                <td>Both — eventually</td>
+                            </tr>
+                            <tr>
+                                <td>Built for</td>
+                                <td>Zero-to-one</td>
+                                <td>Optimizing existing teams</td>
+                                <td>Scaling existing channels</td>
+                                <td>TBD — they figure it out</td>
+                            </tr>
+                            <tr>
+                                <td>Time to value</td>
+                                <td>Weeks</td>
+                                <td>Months</td>
+                                <td>Months</td>
+                                <td>6+ months to ramp</td>
+                            </tr>
+                            <tr>
+                                <td>What you walk away with</td>
+                                <td>A working system</td>
+                                <td>Recommendations</td>
+                                <td>Campaign results</td>
+                                <td>An employee</td>
+                            </tr>
+                            <tr>
+                                <td>Starting price</td>
+                                <td>$3,500 / month</td>
+                                <td>$5,000+ / month</td>
+                                <td>$5,000–$15,000 / month</td>
+                                <td>$90,000+ / year</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <!-- Testimonials (dark section) -->
+    <div class="section-dark" id="testimonials">
+        <div class="container">
+            <section class="testimonials">
+                <div class="section-heading">
+                    <h2>What founders &amp; agency partners say</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <span class="quote-mark">&ldquo;</span>
+                        <blockquote>She jumps in head-first into the tactical and gets shit done, while also zooming out to think strategically and cross-functionally at the leadership level.</blockquote>
+                        <div class="attribution">Marc Kuo <span>— CEO & Co-Founder, Routific</span></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="quote-mark">&ldquo;</span>
+                        <blockquote>Emma was instrumental in building scalable growth engines to support sales and acted as the product marketing lead for the company's Venture Studio.</blockquote>
+                        <div class="attribution">Sepehr Shoarinejad <span>— President, Koridor Venture Studio</span></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="quote-mark">&ldquo;</span>
+                        <blockquote>Emma is a strategic marketing thinker who helps me make better decisions, make better products, create meaningful campaigns, and — most importantly — do profitable things. Emma takes a long view, does what she commits to 100% of the time. Highly recommend.</blockquote>
+                        <div class="attribution">Bryce Lokken <span>— Founder, Reviive</span></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="quote-mark">&ldquo;</span>
+                        <blockquote>The tactics that Emma recommended have shown immediate results. Particularly, my client has implemented one of the recommendations, which brought them several paying clients in the same month — we're talking about industrial enterprise level clients with orders worth hundreds of thousands of dollars.</blockquote>
+                        <div class="attribution">Igor Shepton <span>— Owner, ISMG Agency</span></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-white" id="faq">
+        <div class="container">
+            <section class="faq">
+                <div class="section-heading">
+                    <h2>Frequently asked questions</h2>
+                </div>
+
+                <div class="faq-category">About the Engagement</div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>What does a typical engagement look like?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Every engagement starts the same way: a one-month positioning sprint. We run three working sessions together to nail your positioning, build your messaging framework, and rewrite your homepage. Between sessions I do the research, build the options, and draft the copy. You review, push back, and refine.</p>
+                        <p>At the end of Month 1 you have a set of concrete artifacts — positioning canvas, ICP definition, messaging framework, homepage copy — and we decide together whether to keep going.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>How long does an engagement last?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Month 1 is fixed — one month, defined scope, specific deliverables. After that it's up to both of us. Some founders finish the positioning sprint and are ready to execute on their own. Others want to keep building — sales content, channel experiments, founder brand, hiring prep. If we continue, there's no set end date. We work month to month, and either of us can wind down when the work is done.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>How is pricing structured?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Month 1 is a fixed-scope engagement at $3,500 USD. After that, ongoing work is scoped month to month based on what the startup actually needs — typically 20 to 30 hours per month. I don't do open-ended retainers with vague deliverables. The scope, timeline, and expected outputs are defined upfront so you know exactly what you're getting.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>How much of your time do I actually get?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>I take a maximum of three clients at a time. That's a deliberate constraint — it means I'm going deep on a small number of engagements, not spreading thin across a portfolio. You're not someone's Tuesday afternoon.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-category">About the Approach</div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>What's the difference between a fractional marketing director and a fractional CMO?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>A fractional CMO typically operates at the strategic level — they advise, create frameworks, and hand off recommendations. That works well for companies that already have a marketing team to execute.</p>
+                        <p>A fractional marketing director operates in the build zone. I do the strategy and I build the bridge to execution — creating the artifacts, running the first iterations, and handing off a system someone can actually run. At your stage, you don't need someone to consult from arm's length. You need someone who can think and build.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>Will I get a strategy deck, or will things actually get implemented?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Both, but the emphasis is on the second one. The strategy lives in the artifacts — positioning canvas, messaging framework, homepage copy. These are tools your team uses, not slides for a presentation.</p>
+                        <p>Where implementation makes sense, I execute directly — first-draft website copy, initial content pieces, first outbound sequences. Either way, nothing ends at the deck stage.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>What frameworks do you use?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>I use proven, established frameworks from practitioners I trust — not proprietary methodology. Fletch PMM (Anthony Pierri) for positioning. The Bullseye framework (Gabriel Weinberg) for channel validation. Emily Kramer's work on narrative and content. Dave Gerhardt on founder brand. The thinking has already been done by people who are very good at it. What's usually missing is someone who knows how to apply these frameworks at your stage, with your constraints.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>What do I walk away with at the end of an engagement?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>After Month 1, you have: a positioning canvas documenting exactly what your product is, who it's for, and why it's different; an ICP definition; competitive alternative mapping; a messaging framework usable across your website, outbound, and sales; and production-ready homepage copy. Everything is built to be usable — by you, by a future marketing hire, or by an agency that needs clear direction to execute against.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-category">About Fit</div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>How do I know if I'm ready for this?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>The right time is when you have real customers, solid retention, and a pattern of who buys and why — but no system to scale beyond founder-driven growth. You've probably tried a few marketing things that didn't compound. You may have raised a round and feel pressure to show growth beyond your personal network.</p>
+                        <p>If that sounds familiar, you're likely in the right window.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>We're pre-revenue or pre-PMF. Is this too early?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Not necessarily. Positioning work is useful at any stage — even pre-revenue. If you have a hypothesis about who you're for and what problem you solve, a positioning sprint can stress-test that hypothesis, sharpen it into a clear point of view, and give you the assets to start testing it in the market. Month 1 produces the positioning canvas and homepage copy. A second month might focus on building the first assets to validate it.</p>
+                        <p>Where it doesn't make sense is if you're still fundamentally unsure what you're building. If the product itself is still in flux, nail that first.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>We already have a marketer. Do we still need this?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Maybe. The most common pattern I see is a marketer who's good at execution but doesn't have strategic direction — they're producing content, running campaigns, or managing social, but nobody has defined the ICP, positioning, or channel strategy underneath. They're doing their job well on a foundation that doesn't exist yet.</p>
+                        <p>If that's your situation, I build the foundation and hand it to your marketer so they have clear direction.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>We've worked with a fractional before and it didn't work. Why would this be different?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>The most common failure mode with fractional CMOs is the strategy-execution gap. They deliver smart recommendations, then leave. Nobody implements. The deck gathers dust.</p>
+                        <p>I'm structured differently. I operate as a fractional marketing director, not a CMO — the distinction is that I build, not just advise. I create the handoff assets, execute the first iterations, and I'm transparent about what I do myself versus what needs a specialist.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-category">About What Comes After</div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>What happens after the engagement ends?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>You walk away with clarity — on who you're for, what to say, and how you're different. That clarity lives in the artifacts: the positioning canvas, messaging framework, and homepage copy. Month 1 is a starting point, not a complete playbook. The decisions it forces are the ones that make every subsequent marketing decision easier and faster.</p>
+                        <p>Some founders continue with me to keep building on that foundation. Others take it and run. Both are valid — the engagement is designed to give you momentum, not dependency.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>Will this help me hire my first marketer?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Yes — not because you'll have everything figured out, but because you'll have the clarity to make smarter hiring decisions. You'll know what kind of marketer you actually need, what their first priorities should be, and what's already been decided versus what they'll need to own. That's a very different conversation than handing someone a blank page and saying "figure out marketing."</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <h3>Do you work with agencies? Can I bring one in after?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer"><div class="faq-answer-inner">
+                        <p>Yes — and I'd encourage it when the time is right. My role is to build the initial strategy and get enough signal across a range of tactics to know where you should invest. I'm a generalist by design — that's what early-stage work requires. But I'm not a channel specialist, and I won't pretend to be.</p>
+                        <p>When you're ready to go deep on a specific channel — paid, SEO, content, outbound — that's when a specialist agency or a vetted professional who lives and breathes that channel will outperform me. I work alongside those people regularly. I hand off the strategic foundation; they execute at a depth I can't match. That's not a limitation — it's the right division of labor.</p>
+                    </div></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- CTA (dark section, continuous with footer) -->
+    <div class="section-dark">
+        <section class="cta-section" id="cta">
+            <h2>Not sure what your next marketing move should be?</h2>
+            <p>Book a 25-minute call. No pitch — just an honest conversation about what makes sense for your stage.</p>
+            <a href="https://calendly.com/cimolini/chats" class="btn-primary-dark">Work with 021 &rarr;</a>
+        </section>
+
+        <footer>
+            <div style="margin-bottom: 12px;">
+                <a href="https://calendly.com/cimolini/chats" style="color: var(--text-muted); text-decoration: none; margin: 0 16px; transition: color 0.2s;">Book a call</a>
+                <span style="color: rgba(255,255,255,0.12);">|</span>
+                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; margin: 0 16px; transition: color 0.2s;">LinkedIn</a>
+            </div>
+            &copy; 2026 021 Marketing
+        </footer>
+    </div>
+
+</body>
+</html>
