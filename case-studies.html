@@ -199,28 +199,18 @@
             font-weight: 600;
             color: var(--text);
         }
-        .cs-card-metrics {
-            background: var(--dark);
-            padding: 48px;
+        .cs-card-image {
+            background: var(--bg-warm);
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            gap: 32px;
+            padding: 32px;
         }
-        .cs-card-metric {
-            text-align: center;
-        }
-        .cs-card-metric-number {
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 800;
-            color: var(--accent);
-            line-height: 1;
-            letter-spacing: -0.03em;
-        }
-        .cs-card-metric-label {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 6px;
+        .cs-card-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
         }
         .cs-card-arrow {
             display: inline-flex;
@@ -310,7 +300,7 @@
                 grid-template-columns: 1fr;
             }
             .cs-card-content { padding: 32px; }
-            .cs-card-metrics { padding: 32px; }
+            .cs-card-image { padding: 24px; }
             .section-dark .cta-section h2 { white-space: normal; }
             footer { flex-direction: column; gap: 16px; text-align: center; }
         }
@@ -366,19 +356,8 @@
                 </div>
                 <div class="cs-card-arrow">Read case study &rarr;</div>
             </div>
-            <div class="cs-card-metrics">
-                <div class="cs-card-metric">
-                    <div class="cs-card-metric-number">4.4x</div>
-                    <div class="cs-card-metric-label">ARR growth</div>
-                </div>
-                <div class="cs-card-metric">
-                    <div class="cs-card-metric-number">1</div>
-                    <div class="cs-card-metric-label">Validated channel scaled</div>
-                </div>
-                <div class="cs-card-metric">
-                    <div class="cs-card-metric-number">1&rarr;4</div>
-                    <div class="cs-card-metric-label">Team built from scratch</div>
-                </div>
+            <div class="cs-card-image">
+                <img src="routific-product.jpg" alt="Routific route optimization dashboard showing delivery routes on a map">
             </div>
         </a>
 
@@ -403,19 +382,34 @@
                 </div>
                 <div class="cs-card-arrow">Read case study &rarr;</div>
             </div>
-            <div class="cs-card-metrics">
-                <div class="cs-card-metric">
-                    <div class="cs-card-metric-number">4,000+</div>
-                    <div class="cs-card-metric-label">Firms on the platform</div>
+            <div class="cs-card-image">
+                <img src="taxaroo-card.jpg" alt="Taxaroo homepage with problem-first messaging for tax practice owners">
+            </div>
+        </a>
+
+        <!-- Koridor -->
+        <a href="case-study-koridor.html" class="cs-card">
+            <div class="cs-card-content">
+                <h2>12 workshops, 250 founders, and the decision to walk&nbsp;away</h2>
+                <p>Scaled a one-off Calgary workshop into a 6-city event series for pre-MVP founders. Built ecosystem partnerships, generated real pipeline &mdash; then killed the channel when budget qualification didn&rsquo;t hold.</p>
+                <div class="cs-card-meta">
+                    <div class="cs-card-meta-item">
+                        <span class="cs-card-meta-label">Company</span>
+                        <span class="cs-card-meta-value">Koridor</span>
+                    </div>
+                    <div class="cs-card-meta-item">
+                        <span class="cs-card-meta-label">Type</span>
+                        <span class="cs-card-meta-value">Software agency</span>
+                    </div>
+                    <div class="cs-card-meta-item">
+                        <span class="cs-card-meta-label">Tactic</span>
+                        <span class="cs-card-meta-value">Events &middot; Channel validation</span>
+                    </div>
                 </div>
-                <div class="cs-card-metric">
-                    <div class="cs-card-metric-number">47 min</div>
-                    <div class="cs-card-metric-label">Saved per return</div>
-                </div>
-                <div class="cs-card-metric">
-                    <div class="cs-card-metric-number">2 mo</div>
-                    <div class="cs-card-metric-label">Sprint to live website</div>
-                </div>
+                <div class="cs-card-arrow">Read case study &rarr;</div>
+            </div>
+            <div class="cs-card-image">
+                <img src="koridor-workshop-portland.jpg" alt="Founder workshop at OEN in Portland">
             </div>
         </a>
 
