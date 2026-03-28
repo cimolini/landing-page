@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexter — Case Study | 021 Marketing</title>
+    <meta name="description" content="How a trust-first outbound system generated $215K pipeline in a market that hates recruiters. Built from scratch with AI automation, database-driven content, and multi-channel sequences.">
+    <link rel="icon" type="image/png" href="logos/021-favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --dark: #0F172A;
+            --dark-surface: #1E293B;
+            --bg: #F8F9FC;
+            --bg-warm: #F3F4F6;
+            --white: #FFFFFF;
+            --text: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --accent: #3B5EFF;
+            --accent-hover: #2A4AE0;
+            --accent-light: rgba(59,94,255,0.08);
+            --border: #E2E8F0;
+            --border-warm: #D8DCE8;
+            --success: #10B981;
+            --success-light: rgba(16,185,129,0.08);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Nav (matches landing page) ── */
+        .nav-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248,249,252,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 16px 32px;
+        }
+        .nav-logo { display: flex; align-items: center; text-decoration: none; }
+        .nav-logo img { height: 36px; width: auto; }
+        .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links .btn-nav {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .nav-links .btn-nav:hover { background: var(--accent-hover); color: var(--white); }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ── Case Study Hero ── */
+        .cs-hero {
+            padding: 80px 32px 60px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .cs-breadcrumb {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        .cs-breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .cs-breadcrumb a:hover { color: var(--accent); }
+        .cs-hero h1 {
+            font-size: clamp(32px, 4.5vw, 48px);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            max-width: 780px;
+        }
+        .cs-hero-meta {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .cs-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .cs-meta-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+        .cs-meta-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ── Stats Banner (dark) ── */
+        .cs-stats {
+            background: var(--dark);
+            padding: 56px 32px;
+        }
+        .cs-stats-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        .cs-stat-number {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+        .cs-stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ── Narrative Sections ── */
+        .cs-section {
+            padding: 80px 32px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .cs-section h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+        }
+        .cs-section p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        .cs-section p:last-child { margin-bottom: 0; }
+
+        /* ── Pull Quote Banner ── */
+        .cs-pullquote-banner {
+            background: var(--dark);
+            padding: 80px 32px;
+        }
+        .cs-pullquote-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cs-pullquote-mark {
+            font-size: 72px;
+            line-height: 1;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .cs-pullquote-banner blockquote {
+            font-size: clamp(20px, 2.5vw, 26px);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+            font-style: italic;
+        }
+
+        /* ── Screenshot Banner ── */
+        .cs-screenshots {
+            background: var(--dark);
+            padding: 64px 32px;
+        }
+        .cs-screenshots-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .cs-screenshot {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .cs-screenshot-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        .cs-screenshot img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .cs-report-download {
+            position: relative;
+            display: block;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .cs-report-download img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transition: filter 0.2s;
+        }
+        .cs-report-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            border-radius: 8px;
+        }
+        .cs-report-overlay span {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .cs-report-download:hover .cs-report-overlay {
+            opacity: 1;
+        }
+
+        /* ── Featured Report Section ── */
+        .cs-report-feature {
+            background: var(--dark);
+            padding: 80px 32px;
+        }
+        .cs-report-feature-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .cs-report-image {
+            position: relative;
+        }
+        .cs-report-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+        }
+        .cs-report-image:hover img {
+            transform: rotate(0deg);
+        }
+        .cs-report-image::after {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid rgba(59,94,255,0.3);
+            border-radius: 8px;
+            z-index: -1;
+            transform: rotate(-2deg);
+        }
+        .cs-report-text h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .cs-report-text h2 {
+            font-size: clamp(22px, 2.5vw, 28px);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .cs-report-text p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .cs-report-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 12px rgba(59,94,255,0.3);
+        }
+        .cs-report-btn:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 4px 16px rgba(59,94,255,0.4);
+        }
+
+        /* ── Testimonial Cards ── */
+        .cs-testimonials {
+            background: var(--white);
+            padding: 80px 32px;
+        }
+        .cs-testimonials-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .cs-testimonials h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+        }
+        .cs-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .cs-testimonial-card {
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+        }
+        .cs-testimonial-quote {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        .cs-testimonial-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .cs-testimonial-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        .cs-testimonial-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .cs-testimonial-role {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .cs-testimonial-outcome {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--success);
+            background: var(--success-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-top: 12px;
+        }
+
+        /* ── Process Flow (full-width image) ── */
+        .cs-process {
+            background: var(--white);
+            padding: 80px 32px;
+        }
+        .cs-process-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .cs-process h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+        }
+        .cs-process img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        /* ── Timeline ── */
+        .cs-timeline {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 80px 32px;
+        }
+        .cs-timeline h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+        }
+        .cs-timeline-items {
+            position: relative;
+            padding-left: 48px;
+        }
+        .cs-timeline-items::before {
+            content: "";
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+        .cs-timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .cs-timeline-item:last-child { margin-bottom: 0; }
+        .cs-timeline-dot {
+            position: absolute;
+            left: -48px;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            border: 3px solid var(--accent);
+        }
+        .cs-timeline-item.completed .cs-timeline-dot {
+            background: var(--accent);
+        }
+        .cs-timeline-item.success .cs-timeline-dot {
+            background: var(--success-light);
+            border-color: var(--success);
+        }
+        .cs-timeline-period {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .cs-timeline-item.success .cs-timeline-period {
+            color: var(--success);
+        }
+        .cs-timeline-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .cs-timeline-item p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Artifacts / Deliverables Grid ── */
+        .cs-artifacts {
+            background: var(--white);
+            padding: 80px 32px;
+        }
+        .cs-artifacts-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .cs-artifacts h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+        }
+        .cs-artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .cs-artifact-card {
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg);
+        }
+        .cs-artifact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        .cs-artifact-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .cs-artifact-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Key Insight Callout ── */
+        .cs-insight {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 32px 80px;
+        }
+        .cs-insight-card {
+            background: var(--success-light);
+            border-left: 4px solid var(--success);
+            border-radius: 0 12px 12px 0;
+            padding: 32px 40px;
+        }
+        .cs-insight-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--success);
+            margin-bottom: 12px;
+        }
+        .cs-insight-card p {
+            font-size: 17px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ── CTA (matches landing page) ── */
+        .section-dark { background: var(--dark); color: var(--white); }
+        .cta-section {
+            padding: 100px 32px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section-dark .cta-section h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+        .section-dark .cta-section p {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .btn-primary-light {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 12px rgba(59,94,255,0.3);
+        }
+        .btn-primary-light:hover { background: var(--accent-hover); box-shadow: 0 4px 16px rgba(59,94,255,0.4); }
+
+        /* ── Footer (matches landing page) ── */
+        footer {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 32px 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--white); }
+        .footer-links { display: flex; gap: 24px; }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 24px 32px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            }
+            .nav-links.open { display: flex; }
+            .nav-wrapper nav { position: relative; }
+            .cs-hero { padding: 48px 24px; }
+            .cs-hero h1 { font-size: 28px; }
+            .cs-hero-meta { gap: 24px; }
+            .cs-screenshots-inner { grid-template-columns: 1fr; gap: 24px; }
+            .cs-section { padding: 60px 24px; }
+            .cs-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .cs-process { padding: 60px 24px; }
+            .cs-timeline { padding: 60px 24px; }
+            .cs-artifacts-grid { grid-template-columns: 1fr; }
+            .cs-artifacts { padding: 60px 24px; }
+            .cs-insight { padding: 0 24px 60px; }
+            .cs-screenshots { padding: 48px 24px; }
+            .cs-report-feature { padding: 60px 24px; }
+            .cs-report-feature-inner { grid-template-columns: 1fr; gap: 40px; }
+            .cs-testimonials { padding: 60px 24px; }
+            .cs-testimonials-grid { grid-template-columns: 1fr; }
+            .section-dark .cta-section h2 { white-space: normal; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <div class="nav-wrapper">
+        <nav>
+            <a href="021-landing-page.html" class="nav-logo">
+                <img src="logos/021-glyph.png" alt="021 Marketing">
+            </a>
+            <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="021-landing-page.html">Home</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="021-landing-page.html#how-i-work">How I work</a></li>
+                <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <div class="section-bg">
+        <section class="cs-hero">
+            <div class="cs-breadcrumb">
+                <a href="021-landing-page.html">021 Marketing</a> &nbsp;/&nbsp; <a href="case-studies.html">Case Studies</a>
+            </div>
+            <h1>How a trust-first outbound system generated $215K pipeline in a market that hates&nbsp;recruiters</h1>
+
+            <div class="cs-hero-meta">
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Company</span>
+                    <span class="cs-meta-value">Lexter</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Stage</span>
+                    <span class="cs-meta-value">Pre-revenue SaaS &amp; Service</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Team</span>
+                    <span class="cs-meta-value">2 people</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Role</span>
+                    <span class="cs-meta-value">Legal recruiter &middot; Marketing</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Scope</span>
+                    <span class="cs-meta-value">Outbound system &middot; Content &middot; 8 months</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Stats (dark banner) -->
+    <div class="cs-stats">
+        <div class="cs-stats-inner">
+            <div class="cs-stat">
+                <div class="cs-stat-number">$215K</div>
+                <div class="cs-stat-label">Qualified pipeline (CAD)</div>
+            </div>
+            <div class="cs-stat">
+                <div class="cs-stat-number">36%</div>
+                <div class="cs-stat-label">Response rate</div>
+            </div>
+            <div class="cs-stat">
+                <div class="cs-stat-number">14%</div>
+                <div class="cs-stat-label">Conversion rate</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Situation -->
+    <section class="cs-section">
+        <h2>The situation</h2>
+        <p>Lexter is a legal talent intelligence platform. When I joined, we were testing a business strategy: could we build a tech-enabled recruitment practice as a way to dogfood our own SaaS platform? The idea was to use our internal database and tools to run recruitment &mdash; and let that real-world usage shape the product.</p>
+        <p>The problem was that legal recruiters have a terrible reputation. Lawyers have described them as a &ldquo;necessary evil&rdquo; and compared the experience to &ldquo;having crypto bro energy.&rdquo; We had no inbound leads, no brand credibility, and no connections in the lateral associate talent market. On top of that, we had a limited budget.</p>
+    </section>
+
+    <!-- Pull Quote -->
+    <div class="cs-pullquote-banner">
+        <div class="cs-pullquote-inner">
+            <div class="cs-pullquote-mark">&ldquo;</div>
+            <blockquote>Legal recruiters have a terrible reputation. Lawyers have described them as a &lsquo;necessary evil&rsquo; and compared the experience to &lsquo;having crypto bro energy.&rsquo;</blockquote>
+        </div>
+    </div>
+
+    <!-- What We Built -->
+    <section class="cs-section">
+        <h2>What we built</h2>
+        <p>Working closely with the CEO (a seasoned legal recruiter), I built the entire outbound system from scratch &mdash; tech stack, automation, and messaging.</p>
+        <p>We used Lexter&rsquo;s internal lawyer database to create segmented lists by seniority, location, and practice area. We wrote and tested personalized multi-channel sequences (email and LinkedIn) designed to sound human, not salesy. We automated lead notifications in Slack by combining manual scraping of 450+ job posting sites with Make.com and Airtable, so the team was instantly notified of opportunities at target firms.</p>
+    </section>
+
+    <!-- Screenshots: Automation + Outreach -->
+    <div class="cs-screenshots">
+        <div class="cs-screenshots-inner">
+            <div class="cs-screenshot">
+                <div class="cs-screenshot-label">Make.com automation workflows</div>
+                <img src="lexter-automation.jpg" alt="Make.com automation scenarios for outreach copy generation and job scraping">
+            </div>
+            <div class="cs-screenshot">
+                <div class="cs-screenshot-label">AI-assisted outreach &amp; employer research</div>
+                <img src="lexter-outreach-email.jpg" alt="AI-assisted email copy and employer research prep for candidate outreach">
+            </div>
+        </div>
+    </div>
+
+    <!-- The Content Play -->
+    <section class="cs-section">
+        <h2>The trust problem &mdash; and the content that solved&nbsp;it</h2>
+        <p>Legal is a low-trust market. Lawyers don&rsquo;t want to hear from recruiters. So instead of leading with a pitch, we led with something useful: a personalized Talent Snapshot Report for every search we ran.</p>
+        <p>Each report was tailored to a specific market, practice area, and bar call range &mdash; pulling real numbers from our database via Metabase. I assembled them manually in Canva using a template I&rsquo;d built, but the data underneath was real and specific. It showed candidates what the talent landscape actually looked like in their market.</p>
+        <p>The reports served two purposes. First, they earned replies &mdash; even from lawyers who weren&rsquo;t ready to move. People appreciated getting genuine market data instead of a cold pitch. Second, they kept the relationship warm. When we reached out again later, we weren&rsquo;t strangers &mdash; we were the people who&rsquo;d sent them something useful.</p>
+    </section>
+
+    <!-- Featured Report -->
+    <div class="cs-report-feature">
+        <div class="cs-report-feature-inner">
+            <div class="cs-report-image">
+                <img src="lexter-talent-report.jpg" alt="Talent Snapshot Report cover — Calgary, Commercial Litigation, Bar call 2-4">
+            </div>
+            <div class="cs-report-text">
+                <h3>Featured Artifact</h3>
+                <h2>Talent Snapshot Report</h2>
+                <p>Personalized market intelligence for every search we ran. Each report was tailored to a specific market, practice area, and bar call range &mdash; pulling real numbers from our database. The thing that turned cold outreach into warm conversations.</p>
+                <a href="https://drive.google.com/file/d/1P5v3WMOiU6fh_oDxW40-V1TkdTS1lX79/view" target="_blank" rel="noopener" class="cs-report-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    View full report
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate Responses -->
+    <div class="cs-testimonials">
+        <div class="cs-testimonials-inner">
+            <h2>How candidates responded</h2>
+            <div class="cs-testimonials-grid">
+                <div class="cs-testimonial-card">
+                    <div class="cs-testimonial-quote">&ldquo;Thanks Emma. Definitely open to it. Appreciate the report!&rdquo;</div>
+                    <div class="cs-testimonial-footer">
+                        <div class="cs-testimonial-avatar">BS</div>
+                        <div>
+                            <div class="cs-testimonial-name">Brody Sikstrom</div>
+                            <div class="cs-testimonial-role">Lawyer</div>
+                        </div>
+                    </div>
+                    <div class="cs-testimonial-outcome">Opened conversation</div>
+                </div>
+                <div class="cs-testimonial-card">
+                    <div class="cs-testimonial-quote">&ldquo;I am not looking to move right now, but appreciate you reaching out! Please do send over the market data.&rdquo;</div>
+                    <div class="cs-testimonial-footer">
+                        <div class="cs-testimonial-avatar">SC</div>
+                        <div>
+                            <div class="cs-testimonial-name">Sabrina Chehade</div>
+                            <div class="cs-testimonial-role">Lawyer (Partner)</div>
+                        </div>
+                    </div>
+                    <div class="cs-testimonial-outcome">Requested the report</div>
+                </div>
+                <div class="cs-testimonial-card">
+                    <div class="cs-testimonial-quote">&ldquo;I might need to hire an associate with a corporate/real estate solicitor&rsquo;s practice. Do you have a similar Talent Snapshot Report for that?&rdquo;</div>
+                    <div class="cs-testimonial-footer">
+                        <div class="cs-testimonial-avatar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div>
+                            <div class="cs-testimonial-name">Incoming Partner</div>
+                            <div class="cs-testimonial-role">Major Canadian firm</div>
+                        </div>
+                    </div>
+                    <div class="cs-testimonial-outcome">Became a hiring lead</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline -->
+    <section class="cs-timeline">
+        <h2>What the engagement looked like</h2>
+        <div class="cs-timeline-items">
+            <div class="cs-timeline-item completed">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Months 1&ndash;2 &mdash; System Design</div>
+                <h3>Build the outbound infrastructure from scratch</h3>
+                <p>Set up the tech stack: Airtable for pipeline tracking, Make.com for automation, folk CRM for contact management, OpenPhone for calls, and Slack for real-time alerts. Created segmented candidate lists from Lexter&rsquo;s database. Built the first outreach sequences &mdash; email and LinkedIn &mdash; and tested messaging that sounded like a human, not a recruiter.</p>
+            </div>
+            <div class="cs-timeline-item completed">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Months 2&ndash;4 &mdash; Content &amp; Automation</div>
+                <h3>Build the Talent Snapshot Reports and automate job scraping</h3>
+                <p>Designed the report template in Canva and started pulling market data from Metabase. Automated Slack notifications for new job postings by scraping 450+ sources through Make.com. Integrated ChatGPT for call prep and email drafting. The reports became the anchor of every outreach sequence &mdash; the thing that turned cold emails into conversations.</p>
+            </div>
+            <div class="cs-timeline-item completed">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Months 4&ndash;6 &mdash; Scale &amp; Iteration</div>
+                <h3>Run multi-channel sequences and refine what converts</h3>
+                <p>Ran sequences across email, LinkedIn, and phone. Tested different angles, subject lines, and report formats. The 36% response rate showed that the trust-first approach was working &mdash; lawyers were replying even when they weren&rsquo;t actively looking, because the content gave them a reason to engage.</p>
+            </div>
+            <div class="cs-timeline-item success">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Months 6&ndash;8 &mdash; Pipeline &amp; Results</div>
+                <h3>$215K in qualified pipeline. 14% conversion to interview.</h3>
+                <p>The system generated $215K CAD in qualified pipeline within the test period. 14% of contacted lawyers were accepted by clients for interviews. The outbound engine was running &mdash; automated alerts feeding the team opportunities, AI-assisted prep making every conversation better, and content reports building the trust that cold outreach alone never could.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artifacts / Deliverables -->
+    <div class="cs-artifacts">
+        <div class="cs-artifacts-inner">
+            <h2>What got built</h2>
+            <div class="cs-artifacts-grid">
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Multi-channel sequences</h3>
+                    <p>Personalized outreach across email, LinkedIn, and phone &mdash; designed to sound human, not salesy. Tested and iterated over 8 months to hit a 36% response rate.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3>Talent Snapshot Reports</h3>
+                    <p>Personalized market intelligence reports for every search &mdash; real data from Lexter&rsquo;s database, assembled in Canva. The trust-building content that turned cold outreach into warm conversations.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Automation stack</h3>
+                    <p>Make.com scenarios for job scraping (450+ sources), Slack alerts, CRM syncing, and AI-assisted call prep. Turned a two-person team into a system that could operate at scale.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Segmented candidate lists</h3>
+                    <p>Built from Lexter&rsquo;s internal database &mdash; segmented by seniority, location, and practice area. Every outreach was targeted, not spray-and-pray.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>Pipeline tracking</h3>
+                    <p>Full-funnel visibility from first touch to client interview &mdash; tracked in Airtable with Metabase dashboards. Showed exactly where conversion happened and where it didn&rsquo;t.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Slack alert system</h3>
+                    <p>Real-time notifications for high-value job postings scraped from 450+ sources. The team could act on opportunities within hours of them going live, not days.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Insight -->
+    <section class="cs-insight">
+        <div class="cs-insight-card">
+            <div class="cs-insight-label">The Takeaway</div>
+            <p>In a market where the default reaction to recruiters is &ldquo;delete,&rdquo; the only way to earn attention is to offer something worth reading before you ask for anything. The Talent Snapshot Reports weren&rsquo;t a gimmick &mdash; they were real market intelligence that candidates genuinely valued. That single decision &mdash; lead with data, not a pitch &mdash; is what made a 36% response rate possible in a market that actively screens out recruiter outreach. The system also validated the tech-enabled recruitment model: two people with the right tools and the right content could generate $215K in pipeline that a traditional team of five couldn&rsquo;t match.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="section-dark">
+        <section class="cta-section">
+            <h2>Not sure what your next marketing move should be?</h2>
+            <p>Book a 25-minute call. No pitch &mdash; just an honest conversation about what makes sense for your stage.</p>
+            <a href="https://calendly.com/cimolini/chats" class="btn-primary-light">Book a call &rarr;</a>
+        </section>
+        <footer>
+            <span>&copy; 2026 021 Marketing</span>
+            <div class="footer-links">
+                <a href="https://calendly.com/cimolini/chats">Book a call</a>
+                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
