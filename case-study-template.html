@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routific — Case Study | 021 Marketing</title>
+    <meta name="description" content="How Emma built Routific's first marketing system from scratch — growing from $900K to $4M ARR as the sole marketer, powered by one validated channel.">
+    <link rel="icon" type="image/png" href="logos/021-favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --dark: #0F172A;
+            --dark-surface: #1E293B;
+            --bg: #F8F9FC;
+            --bg-warm: #F3F4F6;
+            --white: #FFFFFF;
+            --text: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --accent: #3B5EFF;
+            --accent-hover: #2A4AE0;
+            --accent-light: rgba(59,94,255,0.08);
+            --border: #E2E8F0;
+            --border-warm: #D8DCE8;
+            --success: #10B981;
+            --success-light: rgba(16,185,129,0.08);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Nav (matches landing page) ── */
+        .nav-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248,249,252,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 16px 32px;
+        }
+        .nav-logo { display: flex; align-items: center; text-decoration: none; }
+        .nav-logo img { height: 36px; width: auto; }
+        .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links .btn-nav {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .nav-links .btn-nav:hover { background: var(--accent-hover); color: var(--white); }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ── Case Study Hero ── */
+        .cs-hero {
+            padding: 80px 32px 60px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .cs-breadcrumb {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        .cs-breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .cs-breadcrumb a:hover { color: var(--accent); }
+        .cs-hero-label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        .cs-hero h1 {
+            font-size: clamp(32px, 4.5vw, 48px);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            max-width: 780px;
+        }
+        .cs-hero-meta {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .cs-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .cs-meta-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+        .cs-meta-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ── Metrics Banner ── */
+        .cs-metrics {
+            background: var(--dark);
+            padding: 64px 32px;
+        }
+        .cs-metrics-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            text-align: center;
+        }
+        .cs-metric {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .cs-metric-number {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+        .cs-metric-label {
+            font-size: 15px;
+            color: var(--text-muted);
+            max-width: 200px;
+            line-height: 1.5;
+        }
+
+        /* ── Narrative Sections ── */
+        .cs-section {
+            padding: 80px 32px;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .cs-section h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+        }
+        .cs-section p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        .cs-section p:last-child { margin-bottom: 0; }
+
+        /* ── Before / After ── */
+        .cs-before-after {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 32px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .cs-ba-card {
+            padding: 40px;
+            border-radius: 12px;
+        }
+        .cs-ba-card.before {
+            background: var(--dark);
+            color: var(--white);
+        }
+        .cs-ba-card.after {
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+        .cs-ba-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .cs-ba-card.before .cs-ba-label { color: var(--text-muted); }
+        .cs-ba-card.after .cs-ba-label { color: var(--success); }
+        .cs-ba-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .cs-ba-list li {
+            font-size: 16px;
+            line-height: 1.6;
+            padding-left: 28px;
+            position: relative;
+        }
+        .cs-ba-card.before .cs-ba-list li { color: rgba(255,255,255,0.75); }
+        .cs-ba-card.after .cs-ba-list li { color: var(--text-secondary); }
+        .cs-ba-list li::before {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 16px;
+        }
+        .cs-ba-card.before .cs-ba-list li::before { content: "—"; color: var(--text-muted); }
+        .cs-ba-card.after .cs-ba-list li::before { content: "→"; color: var(--success); }
+
+        /* ── Pull Quote ── */
+        .cs-pullquote {
+            background: var(--bg-warm);
+            padding: 80px 32px;
+        }
+        .cs-pullquote-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .cs-pullquote-mark {
+            font-size: 80px;
+            line-height: 1;
+            color: var(--accent);
+            font-weight: 800;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .cs-pullquote-text {
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 600;
+            line-height: 1.45;
+            color: var(--text);
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+        .cs-pullquote-attr {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .cs-pullquote-attr span {
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        /* ── Timeline ── */
+        .cs-timeline {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 32px 80px;
+        }
+        .cs-timeline h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+        }
+        .cs-timeline-items {
+            position: relative;
+            padding-left: 48px;
+        }
+        .cs-timeline-items::before {
+            content: "";
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+        .cs-timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .cs-timeline-item:last-child { margin-bottom: 0; }
+        .cs-timeline-dot {
+            position: absolute;
+            left: -48px;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            border: 3px solid var(--accent);
+        }
+        .cs-timeline-item.completed .cs-timeline-dot {
+            background: var(--accent);
+        }
+        .cs-timeline-period {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .cs-timeline-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .cs-timeline-item p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Artifacts / Deliverables Grid ── */
+        .cs-artifacts {
+            background: var(--white);
+            padding: 80px 32px;
+        }
+        .cs-artifacts-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .cs-artifacts h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 48px;
+        }
+        .cs-artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .cs-artifact-card {
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg);
+        }
+        .cs-artifact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        .cs-artifact-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .cs-artifact-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Key Insight Callout ── */
+        .cs-insight {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 32px 80px;
+        }
+        .cs-insight-card {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 32px 40px;
+        }
+        .cs-insight-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .cs-insight-card p {
+            font-size: 17px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ── CTA (matches landing page) ── */
+        .section-dark { background: var(--dark); color: var(--white); }
+        .cta-section {
+            padding: 100px 32px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section-dark .cta-section h2 {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+        .section-dark .cta-section p {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .btn-primary-light {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 12px rgba(59,94,255,0.3);
+        }
+        .btn-primary-light:hover { background: var(--accent-hover); box-shadow: 0 4px 16px rgba(59,94,255,0.4); }
+
+        /* ── Footer (matches landing page) ── */
+        footer {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 32px 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--white); }
+        .footer-links { display: flex; gap: 24px; }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 24px 32px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            }
+            .nav-links.open { display: flex; }
+            .nav-wrapper nav { position: relative; }
+            .cs-hero { padding: 48px 24px; }
+            .cs-hero h1 { font-size: 28px; }
+            .cs-hero-meta { gap: 24px; }
+            .cs-metrics-inner { grid-template-columns: 1fr; gap: 32px; }
+            .cs-section { padding: 60px 24px; }
+            .cs-before-after {
+                grid-template-columns: 1fr;
+                padding: 0 24px 60px;
+            }
+            .cs-pullquote { padding: 60px 24px; }
+            .cs-timeline { padding: 0 24px 60px; }
+            .cs-artifacts-grid { grid-template-columns: 1fr; }
+            .cs-artifacts { padding: 60px 24px; }
+            .cs-insight { padding: 0 24px 60px; }
+            .section-dark .cta-section h2 { white-space: normal; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <div class="nav-wrapper">
+        <nav>
+            <a href="021-landing-page.html" class="nav-logo">
+                <img src="logos/021-glyph.png" alt="021 Marketing">
+            </a>
+            <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="021-landing-page.html">Home</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="021-landing-page.html#how-i-work">How I work</a></li>
+                <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <div class="section-bg">
+        <section class="cs-hero">
+            <div class="cs-breadcrumb">
+                <a href="021-landing-page.html">021 Marketing</a> &nbsp;/&nbsp; <a href="case-studies.html">Case Studies</a>
+            </div>
+            <h1>How one validated channel took Routific from $900K to $4M&nbsp;ARR</h1>
+
+            <div class="cs-hero-meta">
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Company</span>
+                    <span class="cs-meta-value">Routific</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Stage</span>
+                    <span class="cs-meta-value">Early-stage SaaS</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Motion</span>
+                    <span class="cs-meta-value">PLG &middot; SMB</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Industry</span>
+                    <span class="cs-meta-value">Route optimization / logistics</span>
+                </div>
+                <div class="cs-meta-item">
+                    <span class="cs-meta-label">Role</span>
+                    <span class="cs-meta-value">First marketing hire &middot; 4 years</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Metrics Banner -->
+    <div class="cs-metrics">
+        <div class="cs-metrics-inner">
+            <div class="cs-metric">
+                <div class="cs-metric-number">4.4x</div>
+                <div class="cs-metric-label">ARR growth over four years</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric-number">1</div>
+                <div class="cs-metric-label">Validated channel scaled &mdash; organic search</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric-number">1&rarr;4</div>
+                <div class="cs-metric-label">Marketing team built from scratch</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Situation -->
+    <section class="cs-section">
+        <h2>The situation</h2>
+        <p>Routific had built a route optimization platform that customers genuinely loved. PLG motion, SMB audience &mdash; people signed up for a free trial, and the product did most of the selling. They were approaching $900K ARR, almost entirely through organic search. Retention was solid. But the company's co-founder had been handling marketing solo &mdash; and she was about to go on maternity leave.</p>
+        <p>There was no marketing function to hand off. No dashboards, no KPIs, no documented ICP, no channel strategy beyond "organic search seems to be working." Routific was also a horizontal product &mdash; selling to anyone who needed route optimization, from florists to food delivery to field service. The positioning was broad because nobody had done the work to narrow it. And with a self-serve motion, every piece of the funnel mattered &mdash; from the first Google result to trial signup to activation. There was no sales team to paper over a leaky funnel.</p>
+        <p>I joined as the first marketing hire. The brief was essentially: figure out marketing. Build whatever needs to exist, sit at the leadership table, and make it work. Over four years the team grew to four &mdash; me, a product marketer, a content marketer, and a designer &mdash; but the function started from zero.</p>
+    </section>
+
+    <!-- Before / After -->
+    <div class="cs-before-after">
+        <div class="cs-ba-card before">
+            <div class="cs-ba-label">Before</div>
+            <ul class="cs-ba-list">
+                <li>No marketing KPIs or dashboards &mdash; no way to measure what was working</li>
+                <li>Horizontal positioning &mdash; selling to everyone, resonating with no one specifically</li>
+                <li>One channel (organic search) working by accident, not by strategy</li>
+                <li>Founder doing marketing part-time, about to go on leave</li>
+                <li>No experimentation practice &mdash; no structured way to test new channels or tactics</li>
+            </ul>
+        </div>
+        <div class="cs-ba-card after">
+            <div class="cs-ba-label">After</div>
+            <ul class="cs-ba-list">
+                <li>Marketing dashboards and KPIs in place &mdash; leadership had visibility into the funnel</li>
+                <li>Narrowed ICP to a focused segment that created clarity across the business</li>
+                <li>Organic search validated, scaled intentionally, and staffed with a dedicated content marketer</li>
+                <li>Full marketing function at the leadership table alongside product, engineering, sales, and CEO</li>
+                <li>Experimentation practice running structured tests across channels and trial activation</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Pull Quote -->
+    <div class="cs-pullquote">
+        <div class="cs-pullquote-inner">
+            <span class="cs-pullquote-mark">&ldquo;</span>
+            <div class="cs-pullquote-text">She jumps in head-first into the tactical and gets shit done, while also zooming out to think strategically and cross-functionally at the leadership level.</div>
+            <div class="cs-pullquote-attr">Marc Kuo <span>&mdash; CEO &amp; Co-Founder, Routific</span></div>
+        </div>
+    </div>
+
+    <!-- The Work: Timeline -->
+    <section class="cs-timeline">
+        <h2>What the engagement looked like</h2>
+        <div class="cs-timeline-items">
+            <div class="cs-timeline-item completed">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Phase 1 &mdash; Foundation</div>
+                <h3>Build the infrastructure that didn't exist</h3>
+                <p>First priority: visibility. Built marketing dashboards and defined KPIs so leadership could actually see the funnel. Set up HubSpot properly. Created the measurement layer that every subsequent decision would depend on.</p>
+            </div>
+            <div class="cs-timeline-item completed">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Phase 2 &mdash; Research &amp; Positioning</div>
+                <h3>Customer research that narrowed the target</h3>
+                <p>Ran customer research to understand who was actually buying and why. Routific was horizontal &mdash; selling to florists, food delivery, field service, everyone. The research revealed a focused ICP segment that created clarity for the entire business, not just marketing. Refined positioning and messaging around that segment.</p>
+            </div>
+            <div class="cs-timeline-item completed">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Phase 3 &mdash; Channel Validation</div>
+                <h3>Test everything, then double down on what works</h3>
+                <p>Built an experimentation practice &mdash; structured tests across channels and trial activation. With a PLG motion, trial optimization was as important as top-of-funnel. Ran multiple experiments over the years. The signal kept pointing back to organic search and trial. Rather than chasing the next shiny channel, validated the one that was already working and scaled it intentionally. Hired a content marketer to go deeper.</p>
+            </div>
+            <div class="cs-timeline-item completed">
+                <div class="cs-timeline-dot"></div>
+                <div class="cs-timeline-period">Phase 4 &mdash; Scale &amp; Expand</div>
+                <h3>Grow the engine and extend into new plays</h3>
+                <p>Organic traffic and trial signups grew month-over-month. Managed lifecycle campaigns to improve activation and retention. Led the API relaunch through an ABM campaign targeting a new buyer segment. Captured COVID tailwinds when delivery logistics surged. By the end: $4M ARR, a real marketing function, and a system that didn't depend on one person improvising.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artifacts / Deliverables -->
+    <div class="cs-artifacts">
+        <div class="cs-artifacts-inner">
+            <h2>What got built</h2>
+            <div class="cs-artifacts-grid">
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <h3>Positioning &amp; messaging</h3>
+                    <p>Customer research translated into refined positioning, narrowed ICP, and messaging that worked across the website, trial experience, and sales conversations.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>Marketing dashboards &amp; KPIs</h3>
+                    <p>The measurement system that gave leadership visibility into the full funnel &mdash; from organic traffic through trial signup to activation and revenue.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <h3>Organic search engine</h3>
+                    <p>Validated organic as the primary channel, then scaled it &mdash; hiring a content marketer and growing trial signups month-over-month through SEO-driven content.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Experimentation practice</h3>
+                    <p>A structured approach to testing channels and optimizing trial activation &mdash; run experiments, read the signal, double down or move on.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Lifecycle campaigns</h3>
+                    <p>HubSpot-powered lifecycle emails targeting trial activation, onboarding, and retention. In a PLG motion with no sales team to catch drop-offs, this was the layer between acquisition and revenue.</p>
+                </div>
+                <div class="cs-artifact-card">
+                    <div class="cs-artifact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>API relaunch via ABM</h3>
+                    <p>Managed the go-to-market for Routific's API product through an account-based marketing campaign targeting a new buyer segment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Insight -->
+    <section class="cs-insight">
+        <div class="cs-insight-card">
+            <div class="cs-insight-label">The Takeaway</div>
+            <p>Routific didn't need five channels. They needed one validated channel and a system around it. The instinct at early-stage is to spread thin &mdash; try everything, hope something sticks. What actually worked was the opposite: do the research, find the signal, build the infrastructure, and scale the thing that's already working. Four years, one primary channel, 4.4x ARR growth. Sometimes the boring answer is the right one.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="section-dark">
+        <section class="cta-section">
+            <h2>Not sure what your next marketing move should be?</h2>
+            <p>Book a 25-minute call. No pitch — just an honest conversation about what makes sense for your stage.</p>
+            <a href="https://calendly.com/cimolini/chats" class="btn-primary-light">Book a call &rarr;</a>
+        </section>
+        <footer>
+            <span>&copy; 2026 021 Marketing</span>
+            <div class="footer-links">
+                <a href="https://calendly.com/cimolini/chats">Book a call</a>
+                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
