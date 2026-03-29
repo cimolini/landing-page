@@ -102,6 +102,7 @@
             padding: 80px 32px 60px;
             max-width: 1080px;
             margin: 0 auto;
+            text-align: center;
         }
         .cs-breadcrumb {
             font-size: 14px;
@@ -121,12 +122,15 @@
             letter-spacing: -0.02em;
             margin-bottom: 24px;
             max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .cs-hero-meta {
             display: flex;
             gap: 32px;
             flex-wrap: wrap;
             margin-top: 32px;
+            justify-content: center;
         }
         .cs-meta-item {
             display: flex;
@@ -364,28 +368,99 @@
 
         /* ── Key Insight Callout ── */
         .cs-insight {
+            background: var(--white);
+            padding: 80px 32px;
+        }
+        .cs-insight-inner {
             max-width: 780px;
             margin: 0 auto;
-            padding: 0 32px 80px;
-        }
-        .cs-insight-card {
-            background: var(--accent-light);
-            border-left: 4px solid var(--accent);
-            border-radius: 0 12px 12px 0;
-            padding: 32px 40px;
         }
         .cs-insight-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: var(--accent);
-            margin-bottom: 12px;
+            margin-bottom: 24px;
         }
-        .cs-insight-card p {
-            font-size: 17px;
+        .cs-insight-inner p {
+            font-size: clamp(18px, 2vw, 21px);
+            font-weight: 400;
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.8;
+        }
+        .cs-insight-inner p + p {
+            margin-top: 16px;
+        }
+
+        /* ── More Projects ── */
+        .more-projects {
+            background: var(--bg);
+            padding: 80px 32px;
+        }
+        .more-projects-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .more-projects h2 {
+            font-size: clamp(22px, 2.5vw, 28px);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .more-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .more-project-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .more-project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px rgba(59,94,255,0.08);
+        }
+        .more-project-card-logo {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .more-project-card-logo img {
+            max-width: 120px;
+            max-height: 32px;
+            object-fit: contain;
+        }
+        .more-project-card-logo.brand-routific { background: #EEF0FB; }
+        .more-project-card-logo.brand-taxaroo { background: #EAF4FB; }
+        .more-project-card-logo.brand-koridor { background: #F0F1F4; }
+        .more-project-card-logo.brand-lexter { background: #EDF1F7; }
+        .more-project-card-body {
+            padding: 24px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .more-project-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: auto;
+            padding-bottom: 12px;
+            color: var(--text);
+        }
+        .more-project-card .more-project-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
         }
 
         /* ── CTA (matches landing page) ── */
@@ -393,21 +468,18 @@
         .cta-section {
             padding: 100px 32px;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
-        .section-dark .cta-section h2 {
-            font-size: clamp(24px, 3vw, 32px);
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
-            white-space: nowrap;
+        .cta-section h2 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+            color: var(--white);
         }
-        .section-dark .cta-section p {
+        .cta-section p {
             color: var(--text-muted);
-            font-size: 17px;
-            margin-bottom: 32px;
-            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 36px;
         }
         .btn-primary-light {
             display: inline-block;
@@ -425,12 +497,8 @@
 
         /* ── Footer (matches landing page) ── */
         footer {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 32px 32px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
+            padding: 32px;
             font-size: 14px;
             color: var(--text-muted);
         }
@@ -440,7 +508,6 @@
             transition: color 0.2s;
         }
         footer a:hover { color: var(--white); }
-        .footer-links { display: flex; gap: 24px; }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
@@ -472,9 +539,10 @@
             .cs-timeline { padding: 60px 24px; }
             .cs-artifacts-grid { grid-template-columns: 1fr; }
             .cs-artifacts { padding: 60px 24px; }
-            .cs-insight { padding: 0 24px 60px; }
-            .section-dark .cta-section h2 { white-space: normal; }
-            footer { flex-direction: column; gap: 16px; text-align: center; }
+            .cs-insight { padding: 60px 24px; }
+            .more-projects { padding: 60px 24px; }
+            .more-projects-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 72px 20px; }
         }
     </style>
 </head>
@@ -490,9 +558,8 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="021-landing-page.html">Home</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="021-landing-page.html#how-i-work">How I work</a></li>
+                <li><a href="case-studies.html">My Projects</a></li>
+                <li><a href="faq.html">FAQs</a></li>
                 <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
             </ul>
         </nav>
@@ -504,20 +571,12 @@
             <div class="cs-breadcrumb">
                 <a href="021-landing-page.html">021 Marketing</a> &nbsp;/&nbsp; <a href="case-studies.html">Case Studies</a>
             </div>
-            <h1>From &ldquo;unleash your potential&rdquo; to a pain point every tax practice owner&nbsp;recognises</h1>
+            <h1>Rewriting Taxaroo&rsquo;s website around the problem their buyers actually&nbsp;have</h1>
 
             <div class="cs-hero-meta">
                 <div class="cs-meta-item">
-                    <span class="cs-meta-label">Company</span>
-                    <span class="cs-meta-value">Taxaroo</span>
-                </div>
-                <div class="cs-meta-item">
                     <span class="cs-meta-label">Stage</span>
                     <span class="cs-meta-value">Early-stage SaaS</span>
-                </div>
-                <div class="cs-meta-item">
-                    <span class="cs-meta-label">Motion</span>
-                    <span class="cs-meta-value">Sales-led &middot; SMB</span>
                 </div>
                 <div class="cs-meta-item">
                     <span class="cs-meta-label">Industry</span>
@@ -525,7 +584,7 @@
                 </div>
                 <div class="cs-meta-item">
                     <span class="cs-meta-label">Scope</span>
-                    <span class="cs-meta-value">Positioning sprint &middot; Website copy &middot; 2 months</span>
+                    <span class="cs-meta-value">Positioning sprint &middot; Website copy</span>
                 </div>
             </div>
         </section>
@@ -649,9 +708,39 @@
 
     <!-- Key Insight -->
     <section class="cs-insight">
-        <div class="cs-insight-card">
+        <div class="cs-insight-inner">
             <div class="cs-insight-label">The Takeaway</div>
             <p>Taxaroo&rsquo;s sales team already knew what made the product valuable &mdash; they said it on calls every day. The website just wasn&rsquo;t saying it. The positioning sprint didn&rsquo;t invent new insights. It extracted what the team already knew, structured it into a framework, and translated it into copy that does the same job a sales rep does &mdash; except it works at scale, 24 hours a day, without needing someone on the other end of the call.</p>
+        </div>
+    </section>
+
+    <!-- More Projects -->
+    <section class="more-projects">
+        <div class="more-projects-inner">
+            <h2>More projects</h2>
+            <div class="more-projects-grid">
+                <a href="case-study-template.html" class="more-project-card">
+                    <div class="more-project-card-logo brand-routific"><img src="logos/routific.svg" alt="Routific"></div>
+                    <div class="more-project-card-body">
+                        <h3>How one validated channel took Routific from $900K to $4M&nbsp;ARR</h3>
+                        <div class="more-project-meta">Early-stage SaaS &middot; Route optimization</div>
+                    </div>
+                </a>
+                <a href="case-study-koridor.html" class="more-project-card">
+                    <div class="more-project-card-logo brand-koridor"><img src="logos/koridor.svg" alt="Koridor"></div>
+                    <div class="more-project-card-body">
+                        <h3>12 workshops, 250 founders, and the decision to walk&nbsp;away</h3>
+                        <div class="more-project-meta">Early-stage agency &middot; Software development</div>
+                    </div>
+                </a>
+                <a href="case-study-lexter.html" class="more-project-card">
+                    <div class="more-project-card-logo brand-lexter"><img src="logos/lexter.svg" alt="Lexter"></div>
+                    <div class="more-project-card-body">
+                        <h3>How a trust-first outbound system generated $215K pipeline in a market that hates&nbsp;recruiters</h3>
+                        <div class="more-project-meta">Pre-Revenue &middot; Legal recruitment</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -663,11 +752,10 @@
             <a href="https://calendly.com/cimolini/chats" class="btn-primary-light">Book a call &rarr;</a>
         </section>
         <footer>
-            <span>&copy; 2026 021 Marketing</span>
-            <div class="footer-links">
-                <a href="https://calendly.com/cimolini/chats">Book a call</a>
-                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener">LinkedIn</a>
+            <div style="margin-bottom: 12px;">
+                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; margin: 0 16px; transition: color 0.2s;">LinkedIn</a>
             </div>
+            &copy; 2026 021 Marketing
         </footer>
     </div>
 

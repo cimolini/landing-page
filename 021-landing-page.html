@@ -377,36 +377,30 @@
         }
 
         /* ─── Principles ─── */
+        .section-accent-subtle { background: var(--dark); color: rgba(255,255,255,0.92); }
+        .section-accent-subtle .section-heading h2 { color: var(--white); }
         .principles { padding: 80px 0; }
-        .principles-grid {
+        .principles-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px 64px;
+            max-width: 780px;
+            margin: 0 auto;
         }
         .principle {
-            text-align: center;
-        }
-        .principle-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--accent-light);
-            color: var(--accent);
-            font-size: 22px;
-            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
         }
         .principle h3 {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
-            letter-spacing: -0.2px;
-            margin-bottom: 10px;
-            line-height: 1.3;
+            color: var(--white);
+            margin-bottom: 6px;
         }
         .principle p {
-            color: var(--text-secondary);
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
             font-size: 15px;
             line-height: 1.65;
             max-width: 400px;
@@ -463,21 +457,19 @@
 
         /* ─── Testimonials (dark) ─── */
         .testimonials { padding: 80px 0; }
-        .testimonials .section-heading h2 { color: var(--white); }
-        .testimonials .section-heading p { color: var(--text-muted); }
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
         .testimonial-card {
-            background: var(--dark-surface);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: var(--bg);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 32px;
             transition: border-color 0.3s;
         }
-        .testimonial-card:hover { border-color: rgba(255,255,255,0.12); }
+        .testimonial-card:hover { border-color: var(--accent); }
         .testimonial-card .quote-mark {
             font-size: 48px;
             line-height: 1;
@@ -489,76 +481,18 @@
         .testimonial-card blockquote {
             font-size: 16px;
             line-height: 1.65;
-            color: rgba(255,255,255,0.85);
+            color: var(--text-secondary);
             margin-bottom: 20px;
         }
         .testimonial-card .attribution {
             font-size: 14px;
             font-weight: 700;
-            color: var(--white);
+            color: var(--text);
         }
         .testimonial-card .attribution span {
             font-weight: 400;
             color: var(--text-muted);
         }
-
-        /* ─── FAQ ─── */
-        .faq { padding: 80px 0; }
-        .faq-category {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-top: 48px;
-            margin-bottom: 16px;
-        }
-        .faq-item { margin-bottom: 0; }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            cursor: pointer;
-            border-bottom: 1px solid var(--border);
-            user-select: none;
-        }
-        .faq-question h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--text);
-            flex: 1;
-            padding-right: 16px;
-        }
-        .faq-toggle {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--bg-warm);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: var(--text-secondary);
-            flex-shrink: 0;
-            transition: all 0.2s;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        .faq-answer-inner { padding: 16px 0 24px; }
-        .faq-answer-inner p {
-            color: var(--text-secondary);
-            font-size: 16px;
-            max-width: 680px;
-            margin-bottom: 12px;
-        }
-        .faq-answer-inner p:last-child { margin-bottom: 0; }
-        .faq-item.open .faq-answer { max-height: 600px; }
-        .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--accent-light); color: var(--accent); }
 
         /* ─── CTA (dark) ─── */
         .cta-section {
@@ -642,14 +576,13 @@
             .work-item { gap: 16px; }
             .execute-grid { grid-template-columns: 1fr; }
             .principles { padding: 60px 0; }
-            .principles-grid { grid-template-columns: 1fr; gap: 40px; }
+            .principles-list { grid-template-columns: 1fr; gap: 24px; }
             .comparison { padding: 60px 0; }
             .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
             .comparison-table { font-size: 13px; min-width: 580px; }
             .comparison-table th, .comparison-table td { padding: 12px; }
             .testimonials { padding: 60px 0; }
             .testimonial-grid { grid-template-columns: 1fr; }
-            .faq { padding: 60px 0; }
             .cta-section { padding: 72px 20px; }
             .logo-row { gap: 32px; justify-content: center; }
         }
@@ -665,10 +598,8 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
             <ul class="nav-links">
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="#how-i-work">How I work</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="case-studies.html">My Projects</a></li>
+                <li><a href="faq.html">FAQs</a></li>
                 <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
             </ul>
         </div>
@@ -681,7 +612,7 @@
         <p>021 helps B2B SaaS founders at early-stage startups build the marketing foundations that compound into a defensible moat.</p>
         <div class="hero-buttons">
             <a href="https://calendly.com/cimolini/chats" class="btn-primary">Work with 021</a>
-            <a href="#how-i-work" class="btn-secondary">How I work</a>
+            <a href="case-studies.html" class="btn-secondary">My Projects</a>
         </div>
     </section>
 
@@ -693,7 +624,7 @@
                     <h2>You have traction, but growth feels&nbsp;stuck.</h2>
                     <p>You've got real customers. Solid retention. You can close anyone who gets on a call with you.</p>
                     <p>But marketing hasn't clicked. You've tried a few things — some LinkedIn posts, maybe a conference, maybe a landing page. Nothing compounded. Not because you did it wrong, but because there was no system underneath.</p>
-                    <p>The signal is there. You know why people buy. But that knowledge is locked in conversations and gut feel — it works one-to-one, and it breaks the moment you need a website, an ad, or a cold email to do the talking for you.</p>
+                    <p>And now AI is compressing the product advantage. Features get replicated in weeks. The companies that win from here are the ones with brand and distribution that can't be cloned — and most early-stage teams haven't started building either.</p>
                 </div>
             </section>
         </div>
@@ -709,7 +640,7 @@
                     </div>
                     <div class="about-content">
                         <h2>Hi. I'm Emma</h2>
-                        <p>I started in enterprise marketing at Microsoft, where I learned how the machine works — big teams, big budgets, structured GTM. Then I left for B2B startups and never looked back.</p>
+                        <p>I started in marketing at companies like Microsoft, where I learned how the machine works — big teams, big budgets, structured GTM. Then I left for B2B startups and never looked back.</p>
                         <p>I've been the first marketing hire at multiple startups. No playbook, messy infrastructure, no team. I've scaled ARR from $500K to $5M+. That experience — building from zero where every dollar and every decision mattered — is what 021 is built on.</p>
                     </div>
                 </div>
@@ -728,94 +659,35 @@
         </div>
     </div>
 
-    <!-- How I Work (Principles) -->
-    <div class="section-white" id="how-i-work">
-        <div class="container">
-            <section class="principles">
-                <div class="section-heading">
-                    <h2>How I work</h2>
-                </div>
-                <div class="principles-grid">
-                    <div class="principle">
-                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-                        <h3>Strategy that ships</h3>
-                        <p>I build the strategy and the first iteration of every asset. You get a strategist who executes — not a consultant who advises from arm's length.</p>
-                    </div>
-                    <div class="principle">
-                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                        <h3>AI-first marketing infrastructure</h3>
-                        <p>Marketing systems built around AI tooling from day one — workflows, content engines, and processes that scale beyond my involvement. Your team inherits infrastructure, not a folder of docs.</p>
-                    </div>
-                    <div class="principle">
-                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                        <h3>Three clients, max</h3>
-                        <p>Three engagements at a time, max. That means I go deep on your business, your market, and your customers. You're not someone's Tuesday afternoon.</p>
-                    </div>
-                    <div class="principle">
-                        <div class="principle-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
-                        <h3>Generalist by design, specialists on call</h3>
-                        <p>I execute the strategy, content, and positioning work directly. When you need depth in a specific channel — paid, SEO, design, dev — I bring in vetted partners who are best-in-class at that thing.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
     <!-- How Each Engagement Starts -->
-    <div class="section-white" style="border-top: 1px solid var(--border);">
+    <div class="section-white" id="how-i-work" style="border-top: 1px solid var(--border);">
         <div class="container">
             <section class="how-i-work">
                 <div class="section-heading">
                     <h2>How each engagement starts</h2>
-                    <p>Engagements build incrementally — so we're always balancing budget with impact.</p>
+                    <p>Engagements are built for fast learning on a lean budget.</p>
                 </div>
 
                 <div class="work-list">
                     <div class="work-item">
                         <div class="work-num">1</div>
                         <div>
-                            <h3>The Positioning Sprint</h3>
-                            <p>A series of working sessions and async work. You walk away with a positioning deck and homepage copy your team can use immediately.</p>
+                            <h3>Align on positioning</h3>
+                            <p>Three working sessions over one month. You walk away with a positioning canvas, messaging framework, and homepage copy. Who you&rsquo;re targeting and why you&rsquo;re better than the competition is the foundation for everything downstream.</p>
                         </div>
                     </div>
                     <div class="work-item">
                         <div class="work-num">2</div>
                         <div>
-                            <h3>Scope what comes next</h3>
-                            <p>The sprint reveals where the highest-leverage opportunities are. We use those learnings to scope ongoing work focused on what will actually move the needle at your stage.</p>
+                            <h3>Pick the first bet</h3>
+                            <p>The sprint is the starting point. I do additional research &mdash; competitor teardowns, buyer interviews, channel analysis &mdash; then we pick our first bet. The goal is to run tight experiments and learn quickly.</p>
                         </div>
                     </div>
                     <div class="work-item">
                         <div class="work-num">3</div>
                         <div>
-                            <h3>Ongoing work, shaped by what we learn</h3>
-                            <p>Ongoing work is scoped to the areas with the highest leverage for your stage.</p>
-                            <div class="execute-grid">
-                                <div class="execute-card">
-                                    <h4>Content & Messaging</h4>
-                                    <p>Website copy, sales decks, one-pagers — whatever your positioning needs to show up in.</p>
-                                </div>
-                                <div class="execute-card">
-                                    <h4>Customer & Market Research</h4>
-                                    <p>Competitive analysis, buyer interviews, or market signals — depending on where the gaps are.</p>
-                                </div>
-                                <div class="execute-card">
-                                    <h4>Channel Experiments</h4>
-                                    <p>Outbound, content, paid — small tests to find what works before committing real budget.</p>
-                                </div>
-                                <div class="execute-card">
-                                    <h4>AI Marketing Infrastructure</h4>
-                                    <p>Workflows and systems that help a small team punch above its weight.</p>
-                                </div>
-                                <div class="execute-card">
-                                    <h4>Founder Brand & POV</h4>
-                                    <p>LinkedIn, thought leadership, speaking — ways to build authority through a distinct point of view.</p>
-                                </div>
-                                <div class="execute-card">
-                                    <h4>Lifecycle & Activation</h4>
-                                    <p>Onboarding flows, nurture sequences, or activation experiments to convert more of what you already have.</p>
-                                </div>
-                            </div>
+                            <h3>Build, measure, iterate</h3>
+                            <p>Month-to-month with defined scope. We build based on real data, kill what isn&rsquo;t working, and exploit what is.</p>
                         </div>
                     </div>
                 </div>
@@ -886,8 +758,37 @@
     </div>
 
 
-    <!-- Testimonials (dark section) -->
-    <div class="section-dark" id="testimonials">
+    <!-- What Makes This Different -->
+    <div class="section-accent-subtle">
+        <div class="container">
+            <section class="principles">
+                <div class="section-heading">
+                    <h2>What you're getting</h2>
+                </div>
+                <div class="principles-list">
+                    <div class="principle">
+                        <h3>Strategy that ships.</h3>
+                        <p>I build the strategy and the first iteration of every asset. No handoff gap &mdash; the same person thinking about positioning is the one writing the homepage.</p>
+                    </div>
+                    <div class="principle">
+                        <h3>AI-first infrastructure.</h3>
+                        <p>Every system I build uses AI tooling from day one. Your team inherits infrastructure that scales beyond my involvement, not a folder of docs.</p>
+                    </div>
+                    <div class="principle">
+                        <h3>Three clients, max.</h3>
+                        <p>I go deep on your business, your market, and your customers. You&rsquo;re not someone&rsquo;s Tuesday afternoon.</p>
+                    </div>
+                    <div class="principle">
+                        <h3>Generalist by design.</h3>
+                        <p>I execute the strategy and positioning work directly. When you need depth in a specific channel, I bring in vetted specialists who are best-in-class at that thing.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="section-white" id="testimonials">
         <div class="container">
             <section class="testimonials">
                 <div class="section-heading">
@@ -914,184 +815,6 @@
                         <blockquote>The tactics that Emma recommended have shown immediate results. Particularly, my client has implemented one of the recommendations, which brought them several paying clients in the same month — we're talking about industrial enterprise level clients with orders worth hundreds of thousands of dollars.</blockquote>
                         <div class="attribution">Igor Shepton <span>— Owner, ISMG Agency</span></div>
                     </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="section-white" id="faq">
-        <div class="container">
-            <section class="faq">
-                <div class="section-heading">
-                    <h2>Frequently asked questions</h2>
-                </div>
-
-                <div class="faq-category">About the Engagement</div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>What does a typical engagement look like?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Every engagement starts the same way: a one-month positioning sprint. We run three working sessions together to nail your positioning, build your messaging framework, and rewrite your homepage. Between sessions I do the research, build the options, and draft the copy. You review, push back, and refine.</p>
-                        <p>At the end of Month 1 you have a set of concrete artifacts — positioning canvas, ICP definition, messaging framework, homepage copy — and we decide together whether to keep going.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>How long does an engagement last?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Month 1 is fixed — one month, defined scope, specific deliverables. After that it's up to both of us. Some founders finish the positioning sprint and are ready to execute on their own. Others want to keep building — sales content, channel experiments, founder brand, hiring prep. If we continue, there's no set end date. We work month to month, and either of us can wind down when the work is done.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>How is pricing structured?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Month 1 is a fixed-scope engagement at $3,500. After that, ongoing work is scoped month to month based on what the startup actually needs — typically 20 to 30 hours per month. I don't do open-ended retainers with vague deliverables. The scope, timeline, and expected outputs are defined upfront so you know exactly what you're getting.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>How much of your time do I actually get?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>I take a maximum of three clients at a time. That's a deliberate constraint — it means I'm going deep on a small number of engagements, not spreading thin across a portfolio. You're not someone's Tuesday afternoon.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-category">About the Approach</div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>What's the difference between a fractional marketing director and a fractional CMO?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>A fractional CMO typically operates at the strategic level — they advise, create frameworks, and hand off recommendations. That works well for companies that already have a marketing team to execute.</p>
-                        <p>A fractional marketing director operates in the build zone. I do the strategy and I build the bridge to execution — creating the artifacts, running the first iterations, and handing off a system someone can actually run. At your stage, you don't need someone to consult from arm's length. You need someone who can think and build.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>Will I get a strategy deck, or will things actually get implemented?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Both, but the emphasis is on the second one. The strategy lives in the artifacts — positioning canvas, messaging framework, homepage copy. These are tools your team uses, not slides for a presentation.</p>
-                        <p>Where implementation makes sense, I execute directly — first-draft website copy, initial content pieces, first outbound sequences. Either way, nothing ends at the deck stage.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>What frameworks do you use?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>I use proven, established frameworks from practitioners I trust — not proprietary methodology. Fletch PMM (Anthony Pierri) for positioning. The Bullseye framework (Gabriel Weinberg) for channel validation. Emily Kramer's work on narrative and content. Dave Gerhardt on founder brand. The thinking has already been done by people who are very good at it. What's usually missing is someone who knows how to apply these frameworks at your stage, with your constraints.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>What do I walk away with at the end of an engagement?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>After Month 1, you have: a positioning canvas documenting exactly what your product is, who it's for, and why it's different; an ICP definition; competitive alternative mapping; a messaging framework usable across your website, outbound, and sales; and production-ready homepage copy. Everything is built to be usable — by you, by a future marketing hire, or by an agency that needs clear direction to execute against.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-category">About Fit</div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>How do I know if I'm ready for this?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>The right time is when you have real customers, solid retention, and a pattern of who buys and why — but no system to scale beyond founder-driven growth. You've probably tried a few marketing things that didn't compound. You may have raised a round and feel pressure to show growth beyond your personal network.</p>
-                        <p>If that sounds familiar, you're likely in the right window.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>We're pre-revenue or pre-PMF. Is this too early?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Not necessarily. Positioning work is useful at any stage — even pre-revenue. If you have a hypothesis about who you're for and what problem you solve, a positioning sprint can stress-test that hypothesis, sharpen it into a clear point of view, and give you the assets to start testing it in the market. Month 1 produces the positioning canvas and homepage copy. A second month might focus on building the first assets to validate it.</p>
-                        <p>Where it doesn't make sense is if you're still fundamentally unsure what you're building. If the product itself is still in flux, nail that first.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>We already have a marketer. Do we still need this?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Maybe. The most common pattern I see is a marketer who's good at execution but doesn't have strategic direction — they're producing content, running campaigns, or managing social, but nobody has defined the ICP, positioning, or channel strategy underneath. They're doing their job well on a foundation that doesn't exist yet.</p>
-                        <p>If that's your situation, I build the foundation and hand it to your marketer so they have clear direction.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>We've worked with a fractional before and it didn't work. Why would this be different?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>The most common failure mode with fractional CMOs is the strategy-execution gap. They deliver smart recommendations, then leave. Nobody implements. The deck gathers dust.</p>
-                        <p>I'm structured differently. I operate as a fractional marketing director, not a CMO — the distinction is that I build, not just advise. I create the handoff assets, execute the first iterations, and I'm transparent about what I do myself versus what needs a specialist.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-category">About What Comes After</div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>What happens after the engagement ends?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>You walk away with clarity — on who you're for, what to say, and how you're different. That clarity lives in the artifacts: the positioning canvas, messaging framework, and homepage copy. Month 1 is a starting point, not a complete playbook. The decisions it forces are the ones that make every subsequent marketing decision easier and faster.</p>
-                        <p>Some founders continue with me to keep building on that foundation. Others take it and run. Both are valid — the engagement is designed to give you momentum, not dependency.</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>Will this help me hire my first marketer?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Yes — not because you'll have everything figured out, but because you'll have the clarity to make smarter hiring decisions. You'll know what kind of marketer you actually need, what their first priorities should be, and what's already been decided versus what they'll need to own. That's a very different conversation than handing someone a blank page and saying "figure out marketing."</p>
-                    </div></div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                        <h3>Do you work with agencies? Can I bring one in after?</h3>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer"><div class="faq-answer-inner">
-                        <p>Yes — and I'd encourage it when the time is right. My role is to build the initial strategy and get enough signal across a range of tactics to know where you should invest. I'm a generalist by design — that's what early-stage work requires. But I'm not a channel specialist, and I won't pretend to be.</p>
-                        <p>When you're ready to go deep on a specific channel — paid, SEO, content, outbound — that's when a specialist agency or a vetted professional who lives and breathes that channel will outperform me. I work alongside those people regularly. I hand off the strategic foundation; they execute at a depth I can't match. That's not a limitation — it's the right division of labor.</p>
-                    </div></div>
                 </div>
             </section>
         </div>

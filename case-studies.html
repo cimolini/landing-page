@@ -199,23 +199,25 @@
             font-weight: 600;
             color: var(--text);
         }
+        .cs-card {
+            align-items: stretch;
+        }
         .cs-card-image {
-            background: var(--bg-warm);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 32px;
-            min-height: 280px;
-            max-height: 360px;
-            overflow: hidden;
+            padding: 48px;
+            min-height: 320px;
         }
         .cs-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+            max-width: 180px;
+            max-height: 48px;
+            object-fit: contain;
         }
+        .cs-card-image.brand-routific { background: #EEF0FB; }
+        .cs-card-image.brand-taxaroo { background: #EAF4FB; }
+        .cs-card-image.brand-koridor { background: #F0F1F4; }
+        .cs-card-image.brand-lexter { background: #EDF1F7; }
         .cs-card-arrow {
             display: inline-flex;
             align-items: center;
@@ -322,9 +324,8 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="021-landing-page.html">Home</a></li>
-                <li><a href="case-studies.html" class="active">Case Studies</a></li>
-                <li><a href="021-landing-page.html#how-i-work">How I work</a></li>
+                <li><a href="case-studies.html" class="active">My Projects</a></li>
+                <li><a href="faq.html">FAQs</a></li>
                 <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
             </ul>
         </nav>
@@ -333,7 +334,7 @@
     <!-- Page Header -->
     <section class="page-header">
         <h1>Real work. Real companies.</h1>
-        <p>Stories from engagements where I built marketing systems from scratch — positioning, channels, and everything in between.</p>
+        <p>A few of my favourite projects.</p>
     </section>
 
     <!-- Case Study Cards -->
@@ -346,48 +347,40 @@
                 <p>Joined as the first marketing hire. Built the function from zero — dashboards, positioning, channel validation — and scaled the one channel that actually worked.</p>
                 <div class="cs-card-meta">
                     <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Company</span>
-                        <span class="cs-card-meta-value">Routific</span>
-                    </div>
-                    <div class="cs-card-meta-item">
                         <span class="cs-card-meta-label">Stage</span>
                         <span class="cs-card-meta-value">Early-stage SaaS</span>
                     </div>
                     <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Motion</span>
-                        <span class="cs-card-meta-value">PLG &middot; SMB</span>
+                        <span class="cs-card-meta-label">Industry</span>
+                        <span class="cs-card-meta-value">Route optimization</span>
                     </div>
                 </div>
                 <div class="cs-card-arrow">Read case study &rarr;</div>
             </div>
-            <div class="cs-card-image">
-                <img src="routific-product.jpg" alt="Routific route optimization dashboard showing delivery routes on a map">
+            <div class="cs-card-image brand-routific">
+                <img src="logos/routific.svg" alt="Routific">
             </div>
         </a>
 
         <!-- Taxaroo -->
         <a href="case-study-taxaroo.html" class="cs-card">
             <div class="cs-card-content">
-                <h2>From &ldquo;unleash your potential&rdquo; to a pain point every tax practice owner&nbsp;recognises</h2>
-                <p>Ran a positioning sprint and rewrote the homepage from scratch. Replaced generic feature copy with problem-first messaging grounded in what the sales team heard every day.</p>
+                <h2>Rewriting Taxaroo&rsquo;s website around the problem their buyers actually&nbsp;have</h2>
+                <p>Ran a positioning sprint and rewrote the entire website. Replaced generic feature copy with problem-first messaging grounded in what the sales team heard every day.</p>
                 <div class="cs-card-meta">
-                    <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Company</span>
-                        <span class="cs-card-meta-value">Taxaroo</span>
-                    </div>
                     <div class="cs-card-meta-item">
                         <span class="cs-card-meta-label">Stage</span>
                         <span class="cs-card-meta-value">Early-stage SaaS</span>
                     </div>
                     <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Motion</span>
-                        <span class="cs-card-meta-value">Sales-led &middot; SMB</span>
+                        <span class="cs-card-meta-label">Industry</span>
+                        <span class="cs-card-meta-value">Tax &amp; accounting</span>
                     </div>
                 </div>
                 <div class="cs-card-arrow">Read case study &rarr;</div>
             </div>
-            <div class="cs-card-image">
-                <img src="taxaroo-card.jpg" alt="Taxaroo homepage with problem-first messaging for tax practice owners">
+            <div class="cs-card-image brand-taxaroo">
+                <img src="logos/taxaroo.png" alt="Taxaroo">
             </div>
         </a>
 
@@ -398,22 +391,18 @@
                 <p>Scaled a one-off Calgary workshop into a 6-city event series for pre-MVP founders. Built ecosystem partnerships, generated real pipeline &mdash; then killed the channel when budget qualification didn&rsquo;t hold.</p>
                 <div class="cs-card-meta">
                     <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Company</span>
-                        <span class="cs-card-meta-value">Koridor</span>
+                        <span class="cs-card-meta-label">Stage</span>
+                        <span class="cs-card-meta-value">Early-stage agency</span>
                     </div>
                     <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Type</span>
-                        <span class="cs-card-meta-value">Software agency</span>
-                    </div>
-                    <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Tactic</span>
-                        <span class="cs-card-meta-value">Events &middot; Channel validation</span>
+                        <span class="cs-card-meta-label">Industry</span>
+                        <span class="cs-card-meta-value">Software development</span>
                     </div>
                 </div>
                 <div class="cs-card-arrow">Read case study &rarr;</div>
             </div>
-            <div class="cs-card-image">
-                <img src="koridor-workshop-portland.jpg" alt="Founder workshop at OEN in Portland">
+            <div class="cs-card-image brand-koridor">
+                <img src="logos/koridor.svg" alt="Koridor">
             </div>
         </a>
 
@@ -424,22 +413,18 @@
                 <p>Built an outbound engine from scratch &mdash; AI automation, database-driven content, and multi-channel sequences &mdash; to earn trust in legal recruitment, a market that actively screens out cold&nbsp;outreach.</p>
                 <div class="cs-card-meta">
                     <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Company</span>
-                        <span class="cs-card-meta-value">Lexter</span>
-                    </div>
-                    <div class="cs-card-meta-item">
                         <span class="cs-card-meta-label">Stage</span>
-                        <span class="cs-card-meta-value">Pre-revenue SaaS &amp; Service</span>
+                        <span class="cs-card-meta-value">Pre-Revenue</span>
                     </div>
                     <div class="cs-card-meta-item">
-                        <span class="cs-card-meta-label">Tactic</span>
-                        <span class="cs-card-meta-value">Outbound &middot; Content</span>
+                        <span class="cs-card-meta-label">Industry</span>
+                        <span class="cs-card-meta-value">Legal recruitment</span>
                     </div>
                 </div>
                 <div class="cs-card-arrow">Read case study &rarr;</div>
             </div>
-            <div class="cs-card-image">
-                <img src="lexter-outbound-dashboard.jpg" alt="Lexter outbound system dashboard and automation tools">
+            <div class="cs-card-image brand-lexter">
+                <img src="logos/lexter.svg" alt="Lexter">
             </div>
         </a>
 
@@ -455,7 +440,6 @@
         <footer>
             <span>&copy; 2026 021 Marketing</span>
             <div class="footer-links">
-                <a href="https://calendly.com/cimolini/chats">Book a call</a>
                 <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
         </footer>

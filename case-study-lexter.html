@@ -102,6 +102,7 @@
             padding: 80px 32px 60px;
             max-width: 1080px;
             margin: 0 auto;
+            text-align: center;
         }
         .cs-breadcrumb {
             font-size: 14px;
@@ -121,12 +122,15 @@
             letter-spacing: -0.02em;
             margin-bottom: 24px;
             max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .cs-hero-meta {
             display: flex;
             gap: 32px;
             flex-wrap: wrap;
             margin-top: 32px;
+            justify-content: center;
         }
         .cs-meta-item {
             display: flex;
@@ -303,23 +307,6 @@
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-            transform: rotate(-2deg);
-            transition: transform 0.3s;
-        }
-        .cs-report-image:hover img {
-            transform: rotate(0deg);
-        }
-        .cs-report-image::after {
-            content: "";
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            right: -8px;
-            bottom: -8px;
-            border: 2px solid rgba(59,94,255,0.3);
-            border-radius: 8px;
-            z-index: -1;
-            transform: rotate(-2deg);
         }
         .cs-report-text h3 {
             font-size: 13px;
@@ -383,15 +370,26 @@
         }
         .cs-testimonial-card {
             padding: 32px;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            background: var(--bg);
+            border: none;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
         }
+        .cs-testimonial-mark {
+            font-size: 48px;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--accent);
+            opacity: 0.25;
+            margin-bottom: 8px;
+        }
         .cs-testimonial-quote {
-            font-size: 15px;
-            color: var(--text-secondary);
+            font-size: 17px;
+            font-style: italic;
+            color: var(--text);
             line-height: 1.7;
             flex: 1;
             margin-bottom: 20px;
@@ -425,15 +423,33 @@
             font-size: 12px;
             color: var(--text-muted);
         }
+        .cs-testimonial-firm {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
         .cs-testimonial-outcome {
             display: inline-block;
             font-size: 12px;
             font-weight: 600;
-            color: var(--success);
-            background: var(--success-light);
             padding: 4px 10px;
             border-radius: 4px;
             margin-top: 12px;
+        }
+        .cs-testimonial-outcome.outcome-conversation {
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+        .cs-testimonial-outcome.outcome-report {
+            color: #D97706;
+            background: rgba(217,119,6,0.08);
+        }
+        .cs-testimonial-outcome.outcome-lead {
+            color: var(--success);
+            background: var(--success-light);
         }
 
         /* ── Process Flow (full-width image) ── */
@@ -576,28 +592,99 @@
 
         /* ── Key Insight Callout ── */
         .cs-insight {
+            background: var(--white);
+            padding: 80px 32px;
+        }
+        .cs-insight-inner {
             max-width: 780px;
             margin: 0 auto;
-            padding: 0 32px 80px;
-        }
-        .cs-insight-card {
-            background: var(--success-light);
-            border-left: 4px solid var(--success);
-            border-radius: 0 12px 12px 0;
-            padding: 32px 40px;
         }
         .cs-insight-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--success);
-            margin-bottom: 12px;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 24px;
         }
-        .cs-insight-card p {
-            font-size: 17px;
+        .cs-insight-inner p {
+            font-size: clamp(18px, 2vw, 21px);
+            font-weight: 400;
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.8;
+        }
+        .cs-insight-inner p + p {
+            margin-top: 16px;
+        }
+
+        /* ── More Projects ── */
+        .more-projects {
+            background: var(--bg);
+            padding: 80px 32px;
+        }
+        .more-projects-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .more-projects h2 {
+            font-size: clamp(22px, 2.5vw, 28px);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .more-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .more-project-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .more-project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px rgba(59,94,255,0.08);
+        }
+        .more-project-card-logo {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .more-project-card-logo img {
+            max-width: 120px;
+            max-height: 32px;
+            object-fit: contain;
+        }
+        .more-project-card-logo.brand-routific { background: #EEF0FB; }
+        .more-project-card-logo.brand-taxaroo { background: #EAF4FB; }
+        .more-project-card-logo.brand-koridor { background: #F0F1F4; }
+        .more-project-card-logo.brand-lexter { background: #EDF1F7; }
+        .more-project-card-body {
+            padding: 24px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .more-project-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: auto;
+            padding-bottom: 12px;
+            color: var(--text);
+        }
+        .more-project-card .more-project-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
         }
 
         /* ── CTA (matches landing page) ── */
@@ -605,21 +692,18 @@
         .cta-section {
             padding: 100px 32px;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
-        .section-dark .cta-section h2 {
-            font-size: clamp(24px, 3vw, 32px);
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
-            white-space: nowrap;
+        .cta-section h2 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+            color: var(--white);
         }
-        .section-dark .cta-section p {
+        .cta-section p {
             color: var(--text-muted);
-            font-size: 17px;
-            margin-bottom: 32px;
-            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 36px;
         }
         .btn-primary-light {
             display: inline-block;
@@ -637,12 +721,8 @@
 
         /* ── Footer (matches landing page) ── */
         footer {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 32px 32px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
+            padding: 32px;
             font-size: 14px;
             color: var(--text-muted);
         }
@@ -652,7 +732,6 @@
             transition: color 0.2s;
         }
         footer a:hover { color: var(--white); }
-        .footer-links { display: flex; gap: 24px; }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
@@ -682,14 +761,15 @@
             .cs-timeline { padding: 60px 24px; }
             .cs-artifacts-grid { grid-template-columns: 1fr; }
             .cs-artifacts { padding: 60px 24px; }
-            .cs-insight { padding: 0 24px 60px; }
+            .cs-insight { padding: 60px 24px; }
             .cs-screenshots { padding: 48px 24px; }
             .cs-report-feature { padding: 60px 24px; }
             .cs-report-feature-inner { grid-template-columns: 1fr; gap: 40px; }
             .cs-testimonials { padding: 60px 24px; }
             .cs-testimonials-grid { grid-template-columns: 1fr; }
-            .section-dark .cta-section h2 { white-space: normal; }
-            footer { flex-direction: column; gap: 16px; text-align: center; }
+            .more-projects { padding: 60px 24px; }
+            .more-projects-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 72px 20px; }
         }
     </style>
 </head>
@@ -705,9 +785,8 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="021-landing-page.html">Home</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="021-landing-page.html#how-i-work">How I work</a></li>
+                <li><a href="case-studies.html">My Projects</a></li>
+                <li><a href="faq.html">FAQs</a></li>
                 <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
             </ul>
         </nav>
@@ -723,24 +802,16 @@
 
             <div class="cs-hero-meta">
                 <div class="cs-meta-item">
-                    <span class="cs-meta-label">Company</span>
-                    <span class="cs-meta-value">Lexter</span>
-                </div>
-                <div class="cs-meta-item">
                     <span class="cs-meta-label">Stage</span>
                     <span class="cs-meta-value">Pre-revenue SaaS &amp; Service</span>
                 </div>
                 <div class="cs-meta-item">
-                    <span class="cs-meta-label">Team</span>
-                    <span class="cs-meta-value">2 people</span>
-                </div>
-                <div class="cs-meta-item">
-                    <span class="cs-meta-label">Role</span>
-                    <span class="cs-meta-value">Legal recruiter &middot; Marketing</span>
+                    <span class="cs-meta-label">Industry</span>
+                    <span class="cs-meta-value">Legal recruitment</span>
                 </div>
                 <div class="cs-meta-item">
                     <span class="cs-meta-label">Scope</span>
-                    <span class="cs-meta-value">Outbound system &middot; Content &middot; 8 months</span>
+                    <span class="cs-meta-value">Outbound system &middot; Content</span>
                 </div>
             </div>
         </section>
@@ -783,7 +854,7 @@
     <section class="cs-section">
         <h2>What we built</h2>
         <p>Working closely with the CEO (a seasoned legal recruiter), I built the entire outbound system from scratch &mdash; tech stack, automation, and messaging.</p>
-        <p>We used Lexter&rsquo;s internal lawyer database to create segmented lists by seniority, location, and practice area. We wrote and tested personalized multi-channel sequences (email and LinkedIn) designed to sound human, not salesy. We automated lead notifications in Slack by combining manual scraping of 450+ job posting sites with Make.com and Airtable, so the team was instantly notified of opportunities at target firms.</p>
+        <p>We used Lexter&rsquo;s internal lawyer database to create segmented lists by seniority, location, and practice area. We wrote and tested personalized multi-channel sequences (email, LinkedIn, and phone) designed to sound human, not salesy. We automated lead notifications in Slack by combining manual scraping of 450+ job posting sites with Make.com and Airtable, so the team was instantly notified of opportunities at target firms.</p>
     </section>
 
     <!-- Screenshots: Automation + Outreach -->
@@ -832,29 +903,34 @@
             <h2>How candidates responded</h2>
             <div class="cs-testimonials-grid">
                 <div class="cs-testimonial-card">
-                    <div class="cs-testimonial-quote">&ldquo;Thanks Emma. Definitely open to it. Appreciate the report!&rdquo;</div>
+                    <div class="cs-testimonial-mark">&ldquo;</div>
+                    <div class="cs-testimonial-quote">Thanks Emma. Definitely open to it. Appreciate the report!</div>
                     <div class="cs-testimonial-footer">
                         <div class="cs-testimonial-avatar">BS</div>
                         <div>
                             <div class="cs-testimonial-name">Brody Sikstrom</div>
                             <div class="cs-testimonial-role">Lawyer</div>
+                            <div class="cs-testimonial-firm">Walsh LLP</div>
                         </div>
                     </div>
-                    <div class="cs-testimonial-outcome">Opened conversation</div>
+                    <div class="cs-testimonial-outcome outcome-conversation">Opened conversation</div>
                 </div>
                 <div class="cs-testimonial-card">
-                    <div class="cs-testimonial-quote">&ldquo;I am not looking to move right now, but appreciate you reaching out! Please do send over the market data.&rdquo;</div>
+                    <div class="cs-testimonial-mark">&ldquo;</div>
+                    <div class="cs-testimonial-quote">I am not looking to move right now, but appreciate you reaching out! Please do send over the market data.</div>
                     <div class="cs-testimonial-footer">
                         <div class="cs-testimonial-avatar">SC</div>
                         <div>
                             <div class="cs-testimonial-name">Sabrina Chehade</div>
                             <div class="cs-testimonial-role">Lawyer (Partner)</div>
+                            <div class="cs-testimonial-firm">BLG</div>
                         </div>
                     </div>
-                    <div class="cs-testimonial-outcome">Requested the report</div>
+                    <div class="cs-testimonial-outcome outcome-report">Requested the report</div>
                 </div>
                 <div class="cs-testimonial-card">
-                    <div class="cs-testimonial-quote">&ldquo;I might need to hire an associate with a corporate/real estate solicitor&rsquo;s practice. Do you have a similar Talent Snapshot Report for that?&rdquo;</div>
+                    <div class="cs-testimonial-mark">&ldquo;</div>
+                    <div class="cs-testimonial-quote">I might need to hire an associate with a corporate/real estate solicitor&rsquo;s practice. Do you have a similar Talent Snapshot Report for that?</div>
                     <div class="cs-testimonial-footer">
                         <div class="cs-testimonial-avatar">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -864,7 +940,7 @@
                             <div class="cs-testimonial-role">Major Canadian firm</div>
                         </div>
                     </div>
-                    <div class="cs-testimonial-outcome">Became a hiring lead</div>
+                    <div class="cs-testimonial-outcome outcome-lead">Became a hiring lead</div>
                 </div>
             </div>
         </div>
@@ -954,9 +1030,40 @@
 
     <!-- Key Insight -->
     <section class="cs-insight">
-        <div class="cs-insight-card">
+        <div class="cs-insight-inner">
             <div class="cs-insight-label">The Takeaway</div>
-            <p>In a market where the default reaction to recruiters is &ldquo;delete,&rdquo; the only way to earn attention is to offer something worth reading before you ask for anything. The Talent Snapshot Reports weren&rsquo;t a gimmick &mdash; they were real market intelligence that candidates genuinely valued. That single decision &mdash; lead with data, not a pitch &mdash; is what made a 36% response rate possible in a market that actively screens out recruiter outreach. The system also validated the tech-enabled recruitment model: two people with the right tools and the right content could generate $215K in pipeline that a traditional team of five couldn&rsquo;t match.</p>
+            <p>Recruitment is a relationship game. The outbound system got us in front of the right people, but the Talent Snapshot Reports are what kept the conversation going. When a candidate wasn&rsquo;t interested in a role, we didn&rsquo;t disappear &mdash; we followed up with something genuinely useful. That shift from &ldquo;pitch and pray&rdquo; to &ldquo;lead with value&rdquo; is what drove a 36% response rate in a market that actively screens out recruiter outreach.</p>
+            <p>The system also validated the tech-enabled recruitment model we were testing: two people with the right tools and the right content could generate $215K in qualified pipeline that a traditional team of five couldn&rsquo;t match.</p>
+        </div>
+    </section>
+
+    <!-- More Projects -->
+    <section class="more-projects">
+        <div class="more-projects-inner">
+            <h2>More projects</h2>
+            <div class="more-projects-grid">
+                <a href="case-study-template.html" class="more-project-card">
+                    <div class="more-project-card-logo brand-routific"><img src="logos/routific.svg" alt="Routific"></div>
+                    <div class="more-project-card-body">
+                        <h3>How one validated channel took Routific from $900K to $4M&nbsp;ARR</h3>
+                        <div class="more-project-meta">Early-stage SaaS &middot; Route optimization</div>
+                    </div>
+                </a>
+                <a href="case-study-taxaroo.html" class="more-project-card">
+                    <div class="more-project-card-logo brand-taxaroo"><img src="logos/taxaroo.png" alt="Taxaroo"></div>
+                    <div class="more-project-card-body">
+                        <h3>Rewriting Taxaroo&rsquo;s website around the problem their buyers actually&nbsp;have</h3>
+                        <div class="more-project-meta">Early-stage SaaS &middot; Tax &amp; accounting</div>
+                    </div>
+                </a>
+                <a href="case-study-koridor.html" class="more-project-card">
+                    <div class="more-project-card-logo brand-koridor"><img src="logos/koridor.svg" alt="Koridor"></div>
+                    <div class="more-project-card-body">
+                        <h3>12 workshops, 250 founders, and the decision to walk&nbsp;away</h3>
+                        <div class="more-project-meta">Early-stage agency &middot; Software development</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -968,11 +1075,10 @@
             <a href="https://calendly.com/cimolini/chats" class="btn-primary-light">Book a call &rarr;</a>
         </section>
         <footer>
-            <span>&copy; 2026 021 Marketing</span>
-            <div class="footer-links">
-                <a href="https://calendly.com/cimolini/chats">Book a call</a>
-                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener">LinkedIn</a>
+            <div style="margin-bottom: 12px;">
+                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; margin: 0 16px; transition: color 0.2s;">LinkedIn</a>
             </div>
+            &copy; 2026 021 Marketing
         </footer>
     </div>
 
