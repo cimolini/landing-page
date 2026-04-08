@@ -123,7 +123,7 @@
             margin: 0 auto;
         }
         .hero h1 {
-            font-size: clamp(38px, 5vw, 56px);
+            font-size: clamp(32px, 5vw, 56px);
             font-weight: 800;
             line-height: 1.08;
             letter-spacing: -1.5px;
@@ -212,8 +212,6 @@
             text-align: center;
         }
         .pain-content p:last-child {
-            color: var(--text);
-            font-weight: 400;
             margin-bottom: 0;
         }
 
@@ -455,6 +453,8 @@
         .comparison-table td:first-child { font-weight: 700; color: var(--text); white-space: nowrap; }
         .comparison-table tr:last-child td { border-bottom: none; }
 
+        .scroll-hint { display: none; }
+
         /* ─── Testimonials (dark) ─── */
         .testimonials { padding: 80px 0; }
         .testimonial-grid {
@@ -485,14 +485,34 @@
             margin-bottom: 20px;
         }
         .testimonial-card .attribution {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 14px;
             font-weight: 700;
             color: var(--text);
+        }
+        .testimonial-card .attribution img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
         }
         .testimonial-card .attribution span {
             font-weight: 400;
             color: var(--text-muted);
         }
+        .testimonial-link {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .testimonial-link:hover { color: var(--accent-hover); }
 
         /* ─── CTA (dark) ─── */
         .cta-section {
@@ -566,7 +586,8 @@
             .nav-links li { list-style: none; }
             .nav-links .btn-nav { display: inline-block; text-align: center; }
             .hero { padding: 72px 20px 60px; }
-            .hero h1 { letter-spacing: -1px; }
+            .hero h1 { font-size: 32px; letter-spacing: -0.8px; }
+            .hero h1 br, .comparison .section-heading h2 br { display: none; }
             .container { padding: 0 20px; }
             .pain { padding: 60px 0; }
             .about { padding: 60px 0; }
@@ -579,12 +600,24 @@
             .principles-list { grid-template-columns: 1fr; gap: 24px; }
             .comparison { padding: 60px 0; }
             .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .scroll-hint {
+                display: block;
+                font-size: 11px;
+                font-weight: 600;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                text-align: right;
+                margin-bottom: 8px;
+            }
             .comparison-table { font-size: 13px; min-width: 580px; }
             .comparison-table th, .comparison-table td { padding: 12px; }
             .testimonials { padding: 60px 0; }
             .testimonial-grid { grid-template-columns: 1fr; }
             .cta-section { padding: 72px 20px; }
-            .logo-row { gap: 32px; justify-content: center; }
+            .cta-section h2 { font-size: 24px; }
+            .logo-row { gap: 24px 32px; justify-content: center; }
+            .logo-img { height: 24px; }
         }
     </style>
 </head>
@@ -598,7 +631,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
             <ul class="nav-links">
-                <li><a href="case-studies.html">My Projects</a></li>
+                <li><a href="case-studies.html">Projects</a></li>
                 <li><a href="faq.html">FAQs</a></li>
                 <li><a href="https://calendly.com/cimolini/chats" class="btn-nav">Work with 021</a></li>
             </ul>
@@ -608,11 +641,11 @@
     <!-- Hero -->
     <section class="hero">
         <div class="section-label">Fractional marketing for B2B startups</div>
-        <h1>Turn early traction into<br>your first marketing system</h1>
+        <h1>Turn early traction into <br>your first marketing system</h1>
         <p>021 helps B2B SaaS founders at early-stage startups build the marketing foundations that compound into a defensible moat.</p>
         <div class="hero-buttons">
             <a href="https://calendly.com/cimolini/chats" class="btn-primary">Work with 021</a>
-            <a href="case-studies.html" class="btn-secondary">My Projects</a>
+            <a href="case-studies.html" class="btn-secondary">Projects</a>
         </div>
     </section>
 
@@ -700,9 +733,10 @@
         <div class="container" style="max-width: 1200px;">
             <section class="comparison">
                 <div class="section-heading">
-                    <h2>Fractional B2B marketing director.<br>Not a CMO. Not an agency.</h2>
+                    <h2>Fractional B2B marketing director. <br>Not a CMO. Not an agency.</h2>
                 </div>
                 <p class="price-label">Starting at $3,500 / month</p>
+                <div class="scroll-hint">Scroll &rarr;</div>
                 <div class="table-wrapper">
                     <table class="comparison-table">
                         <thead>
@@ -798,22 +832,24 @@
                     <div class="testimonial-card">
                         <span class="quote-mark">&ldquo;</span>
                         <blockquote>She jumps in head-first into the tactical and gets shit done, while also zooming out to think strategically and cross-functionally at the leadership level.</blockquote>
-                        <div class="attribution">Marc Kuo <span>— CEO & Co-Founder, Routific</span></div>
+                        <div class="attribution"><img src="headshot-marc.png" alt="Marc Kuo"><div>Marc Kuo <span>— CEO & Co-Founder, Routific</span></div></div>
+                        <a href="case-study-template.html" class="testimonial-link">Read the case study &rarr;</a>
                     </div>
                     <div class="testimonial-card">
                         <span class="quote-mark">&ldquo;</span>
                         <blockquote>Emma was instrumental in building scalable growth engines to support sales and acted as the product marketing lead for the company's Venture Studio.</blockquote>
-                        <div class="attribution">Sepehr Shoarinejad <span>— President, Koridor Venture Studio</span></div>
+                        <div class="attribution"><img src="headshot-sepehr.png" alt="Sepehr Shoarinejad"><div>Sepehr Shoarinejad <span>— President, Koridor Venture Studio</span></div></div>
+                        <a href="case-study-koridor.html" class="testimonial-link">Read the case study &rarr;</a>
                     </div>
                     <div class="testimonial-card">
                         <span class="quote-mark">&ldquo;</span>
                         <blockquote>Emma is a strategic marketing thinker who helps me make better decisions, make better products, create meaningful campaigns, and — most importantly — do profitable things. Emma takes a long view, does what she commits to 100% of the time. Highly recommend.</blockquote>
-                        <div class="attribution">Bryce Lokken <span>— Founder, Reviive</span></div>
+                        <div class="attribution"><img src="headshot-bryce.png" alt="Bryce Lokken"><div>Bryce Lokken <span>— Founder, Reviive</span></div></div>
                     </div>
                     <div class="testimonial-card">
                         <span class="quote-mark">&ldquo;</span>
                         <blockquote>The tactics that Emma recommended have shown immediate results. Particularly, my client has implemented one of the recommendations, which brought them several paying clients in the same month — we're talking about industrial enterprise level clients with orders worth hundreds of thousands of dollars.</blockquote>
-                        <div class="attribution">Igor Shepton <span>— Owner, ISMG Agency</span></div>
+                        <div class="attribution"><img src="headshot-igor.jpg" alt="Igor Shepton"><div>Igor Shepton <span>— Owner, ISMG Agency</span></div></div>
                     </div>
                 </div>
             </section>
