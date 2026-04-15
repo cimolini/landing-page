@@ -8,94 +8,50 @@
     <link rel="icon" type="image/png" href="logos/021-favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --dark: #0F172A;
-            --dark-surface: #1E293B;
-            --bg: #F8F9FC;
-            --bg-warm: #F3F4F6;
+            --dark: #0A0A0A;
+            --dark-surface: #161616;
+            --bg: #FAFAFA;
+            --bg-warm: #F0F0F0;
             --white: #FFFFFF;
-            --text: #0F172A;
-            --text-secondary: #475569;
-            --text-muted: #94A3B8;
+            --text: #0A0A0A;
+            --text-secondary: #555555;
+            --text-muted: #999999;
             --accent: #3B5EFF;
             --accent-hover: #2A4AE0;
-            --accent-light: rgba(59,94,255,0.08);
-            --border: #E2E8F0;
-            --border-warm: #D8DCE8;
-            --success: #10B981;
-            --success-light: rgba(16,185,129,0.08);
+            --accent-light: rgba(59,94,255,0.06);
+            --border: #E0E0E0;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1100px;
+            --radius: 0px;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--font);
             color: var(--text);
             background-color: var(--bg);
             line-height: 1.7;
-            font-size: 17px;
+            font-size: 16px;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* ── Nav (matches landing page) ── */
-        .nav-wrapper {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(248,249,252,0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 16px 32px;
-        }
-        .nav-logo { display: flex; align-items: center; text-decoration: none; }
-        .nav-logo img { height: 36px; width: auto; }
-        .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--text); }
-        .nav-links .btn-nav {
-            background: var(--accent);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .nav-links .btn-nav:hover { background: var(--accent-hover); color: var(--white); }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-        }
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--text);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,250,0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; max-width: var(--max-width); margin: 0 auto; padding: 20px 40px; }
+        .nav-logo { font-size: 22px; font-weight: 800; color: var(--text); text-decoration: none; }
+        .nav-links { display: flex; gap: 36px; align-items: center; list-style: none; }
+        .nav-links a { color: var(--text); text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links .btn-nav { background: var(--text); color: var(--white); padding: 10px 24px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: background 0.2s; }
+        .nav-links .btn-nav:hover { background: var(--accent); color: var(--white); }
+        .nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 4px; }
 
         /* ── Case Study Hero ── */
         .cs-hero {
@@ -207,7 +163,7 @@
         .cs-before-after {
             max-width: 1080px;
             margin: 0 auto;
-            padding: 0 32px 80px;
+            padding: 20px 32px 80px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
@@ -270,12 +226,12 @@
         }
         .cs-timeline-items {
             position: relative;
-            padding-left: 48px;
+            padding-left: 56px;
         }
         .cs-timeline-items::before {
             content: "";
             position: absolute;
-            left: 11px;
+            left: 14px;
             top: 8px;
             bottom: 8px;
             width: 2px;
@@ -283,21 +239,29 @@
         }
         .cs-timeline-item {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
         .cs-timeline-item:last-child { margin-bottom: 0; }
         .cs-timeline-dot {
             position: absolute;
-            left: -48px;
-            top: 6px;
-            width: 24px;
-            height: 24px;
+            left: -56px;
+            top: 4px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            background: var(--accent-light);
-            border: 3px solid var(--accent);
-        }
-        .cs-timeline-item.completed .cs-timeline-dot {
             background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cs-timeline-dot::after {
+            content: "";
+            width: 10px;
+            height: 6px;
+            border-left: 2px solid var(--white);
+            border-bottom: 2px solid var(--white);
+            transform: rotate(-45deg);
+            margin-top: -2px;
         }
         .cs-timeline-period {
             font-size: 12px;
@@ -420,17 +384,19 @@
             border-radius: 12px;
             text-decoration: none;
             color: var(--text);
-            transition: border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
         .more-project-card:hover {
             border-color: var(--accent);
-            box-shadow: 0 4px 16px rgba(59,94,255,0.08);
+            box-shadow: 0 8px 24px rgba(59,94,255,0.12);
+            transform: translateY(-2px);
         }
         .more-project-card-logo {
-            height: 120px;
+            height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -464,69 +430,53 @@
         }
 
         /* ── CTA (matches landing page) ── */
-        .section-dark { background: var(--dark); color: var(--white); }
-        .cta-section {
-            padding: 100px 32px;
-            text-align: center;
-        }
-        .cta-section h2 {
-            font-size: clamp(28px, 3.5vw, 40px);
-            font-weight: 800;
-            letter-spacing: -0.8px;
-            margin-bottom: 16px;
-            color: var(--white);
-        }
-        .cta-section p {
-            color: var(--text-muted);
-            max-width: 520px;
-            margin: 0 auto 36px;
-        }
-        .btn-primary-light {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 16px 36px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 17px;
-            text-decoration: none;
-            transition: all 0.2s;
-            box-shadow: 0 2px 12px rgba(59,94,255,0.3);
-        }
-        .btn-primary-light:hover { background: var(--accent-hover); box-shadow: 0 4px 16px rgba(59,94,255,0.4); }
+        .section-dark { background: var(--dark); color: rgba(255,255,255,0.92); }
+        .cta-section { padding: 120px 40px; text-align: center; }
+        .cta-section h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -2px; margin-bottom: 20px; color: var(--white); margin-left: auto; margin-right: auto; max-width: 950px; text-transform: uppercase; line-height: 1.05; }
+        .cta-section p { color: var(--text-muted); margin: 0 auto 40px; font-size: 16px; }
+        .btn-primary-dark { display: inline-block; background: var(--accent); color: var(--white); padding: 16px 36px; font-weight: 700; font-size: 14px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
+        .btn-primary-dark:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
         /* ── Footer (matches landing page) ── */
         footer {
-            text-align: center;
-            padding: 32px;
-            font-size: 14px;
-            color: var(--text-muted);
+            padding: 48px 40px;
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
-        footer a {
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
+            font-size: 13px;
             transition: color 0.2s;
         }
-        footer a:hover { color: var(--white); }
+        .footer-links a:hover { color: var(--white); }
+        .footer-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 24px 32px;
-                gap: 16px;
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            }
-            .nav-links.open { display: flex; }
-            .nav-wrapper nav { position: relative; }
+            .nav-inner { padding: 16px 20px; }
+            .nav-toggle { display: block; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); flex-direction: column; padding: 16px 20px 20px; gap: 12px; }
+            .nav-links.nav-open { display: flex; }
+            .nav-links li { list-style: none; }
+            .nav-links .btn-nav { display: inline-block; text-align: center; }
+            .cta-section { padding: 80px 20px; }
+            .cta-section h2 { font-size: 28px; letter-spacing: -1px; }
+            .footer-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+            .footer-links { flex-wrap: wrap; gap: 16px; }
             .cs-hero { padding: 48px 24px; }
             .cs-hero h1 { font-size: 28px; }
             .cs-hero-meta { gap: 24px; }
@@ -542,28 +492,25 @@
             .cs-insight { padding: 60px 24px; }
             .more-projects { padding: 60px 24px; }
             .more-projects-grid { grid-template-columns: 1fr; }
-            .cta-section { padding: 72px 20px; }
         }
     </style>
 </head>
 <body>
 
     <!-- Nav -->
-    <div class="nav-wrapper">
-        <nav>
-            <a href="index.html" class="nav-logo">
-                <img src="logos/021-glyph.png" alt="021 Marketing">
-            </a>
-            <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-                <span></span><span></span><span></span>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><img src="logos/021-glyph.png" alt="021 Marketing" style="height: 36px; width: 36px;"></a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('nav-open')" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
             <ul class="nav-links">
                 <li><a href="case-studies.html">Case Studies</a></li>
                 <li><a href="faq.html">FAQs</a></li>
-                <li><a href="https://calendly.com/emma-021marketing/30min" class="btn-nav">Work with 021</a></li>
+                <li><a href="https://calendly.com/emma-021marketing/30min" class="btn-nav">Book a free call</a></li>
             </ul>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
     <!-- Hero -->
     <div class="section-bg">
@@ -607,9 +554,8 @@
     <!-- The Situation -->
     <section class="cs-section">
         <h2>The situation</h2>
-        <p>Taxaroo is practice management software for small tax and accounting firms. The product had been acquired, the worst bugs had been fixed, and the team was ready to scale. They had 4,000+ firms on the platform and a GTM team of six &mdash; three sales reps, a demand gen manager, a CRO, and me as the fractional marketing director.</p>
-        <p>The problem wasn&rsquo;t the product. It was the story around it. The website read like every other SaaS homepage: &ldquo;Unleash the Full Potential of Your Small Tax or Accounting Firm.&rdquo; Streamline your workflow. Unlock AI. Grow your profits. It was speaking to everyone and connecting with no one. Every section led with features and capabilities rather than the problems those features actually solved.</p>
-        <p>The sales team was having real conversations with tax practice owners every day &mdash; and the language on those calls sounded nothing like the website. There was a gap between what the company knew about its buyers and what the website communicated. Nobody had done the work to close it.</p>
+        <p>Taxaroo is practice management software for small tax and accounting firms. 4,000+ firms on the platform, a GTM team of six, and a product ready to scale. The blocker wasn&rsquo;t the product &mdash; it was the story around it.</p>
+        <p>The website read like every other SaaS homepage: &ldquo;Unleash the Full Potential of Your Small Tax or Accounting Firm.&rdquo; Feature-led, generic, speaking to everyone and connecting with no one. Meanwhile, the sales team was having real conversations with buyers every day &mdash; and the language on those calls sounded nothing like the site.</p>
     </section>
 
     <!-- Before / After -->
@@ -644,13 +590,13 @@
                 <div class="cs-timeline-dot"></div>
                 <div class="cs-timeline-period">Month 1 &mdash; Positioning Sprint</div>
                 <h3>Figure out who this is really for and what to say</h3>
-                <p>Ran a series of workshops with the GTM team to extract what they already knew. Sales reps were talking to tax practice owners every day &mdash; they knew the pain points, the objections, the language buyers actually used. The positioning work translated that signal into a structured framework: who the ICP is, what problem Taxaroo solves in their words, how Taxaroo is different from the alternatives, and what the competitive context looks like. The output was a positioning canvas that gave the whole team &mdash; sales, demand gen, leadership &mdash; a shared foundation to work from.</p>
+                <p>Ran workshops with the GTM team to extract what they already knew &mdash; pain points, objections, and the language buyers actually used. Translated that signal into a positioning canvas: ICP, problem framing, differentiation, and competitive context. One document the whole team could work from.</p>
             </div>
             <div class="cs-timeline-item completed">
                 <div class="cs-timeline-dot"></div>
                 <div class="cs-timeline-period">Month 2 &mdash; Website Copy Rewrite</div>
                 <h3>Rewrite the homepage against the positioning</h3>
-                <p>Took the positioning canvas and rewrote the entire homepage. The old site led with capabilities: AI, workflow automation, team management. The new site led with the problem &mdash; chasing clients for paperwork &mdash; and organized every section around a specific pain that tax practice owners recognise. Features became proof points underneath the problem, not the headline. Surfaced the &ldquo;47 minutes saved per return&rdquo; claim as the lead metric. Pulled social proof &mdash; Capterra ratings, client testimonials &mdash; up into the first scroll so credibility showed up before the ask.</p>
+                <p>Rewrote the entire homepage against the positioning. Every section now leads with a pain tax practice owners recognise, with features as proof points underneath. Surfaced &ldquo;47 minutes saved per return&rdquo; as the lead metric and pulled Capterra ratings and testimonials into the first scroll.</p>
             </div>
         </div>
     </section>
@@ -710,7 +656,7 @@
     <section class="cs-insight">
         <div class="cs-insight-inner">
             <div class="cs-insight-label">The Takeaway</div>
-            <p>Taxaroo&rsquo;s sales team already knew what made the product valuable &mdash; they said it on calls every day. The website just wasn&rsquo;t saying it. The positioning sprint didn&rsquo;t invent new insights. It extracted what the team already knew, structured it into a framework, and translated it into copy that does the same job a sales rep does &mdash; except it works at scale, 24 hours a day, without needing someone on the other end of the call.</p>
+            <p>The sales team already knew what made Taxaroo valuable &mdash; they said it on every call. The positioning sprint didn&rsquo;t invent new insights. It extracted what the team already knew and turned it into copy that does a sales rep&rsquo;s job at scale, 24/7.</p>
         </div>
     </section>
 
@@ -719,7 +665,7 @@
         <div class="more-projects-inner">
             <h2>More projects</h2>
             <div class="more-projects-grid">
-                <a href="case-study-template.html" class="more-project-card">
+                <a href="case-study-routific.html" class="more-project-card">
                     <div class="more-project-card-logo brand-routific"><img src="logos/routific.svg" alt="Routific"></div>
                     <div class="more-project-card-body">
                         <h3>How one validated channel took Routific from $900K to $4M&nbsp;ARR</h3>
@@ -737,7 +683,7 @@
                     <div class="more-project-card-logo brand-lexter"><img src="logos/lexter.svg" alt="Lexter"></div>
                     <div class="more-project-card-body">
                         <h3>How a trust-first outbound system generated $215K pipeline in a market that hates&nbsp;recruiters</h3>
-                        <div class="more-project-meta">Pre-Revenue &middot; Legal recruitment</div>
+                        <div class="more-project-meta">Seed &middot; Legal recruitment</div>
                     </div>
                 </a>
             </div>
@@ -746,16 +692,23 @@
 
     <!-- CTA -->
     <div class="section-dark">
-        <section class="cta-section">
-            <h2>Not sure what your next marketing move should be?</h2>
-            <p>Book a 25-minute call. You'll walk away with clarity on your next move — whether or not we work together.</p>
-            <a href="https://calendly.com/emma-021marketing/30min" class="btn-primary-light">Work with 021 &rarr;</a>
+        <section class="cta-section" id="cta">
+            <h2>Let's get marketing off your&nbsp;plate.</h2>
+            <p>Book a free discovery call to talk through your situation and see if there's a good&nbsp;fit.</p>
+            <a href="https://calendly.com/emma-021marketing/30min" class="btn-primary-dark">Book a free call &rarr;</a>
         </section>
         <footer>
-            <div style="margin-bottom: 12px;">
-                <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; margin: 0 16px; transition: color 0.2s;">LinkedIn</a>
+            <div class="footer-inner">
+                <div class="footer-links">
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="faq.html">FAQs</a>
+                    <a href="https://calendly.com/emma-021marketing/30min">Book a Free Call</a>
+                    <a href="https://www.linkedin.com/in/emmacimolini/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-meta">
+                    &copy; 2026 021 Marketing
+                </div>
             </div>
-            &copy; 2026 021 Marketing
         </footer>
     </div>
 
